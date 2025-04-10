@@ -123,4 +123,35 @@ document.addEventListener('DOMContentLoaded', () => {
             noticeList.appendChild(noticeItem);
         });
     }
+
+    function setupNavigation() {
+        const menuItems = document.querySelectorAll('.menu-item');
+        const dashboard = document.querySelector('.dashboard');
+        const coursesPage = document.querySelector('.courses-page');
+        const assignmentsPage = document.querySelector('.assignments-page');
+    
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+    
+                const page = item.querySelector('.menu-text').textContent.toLowerCase();
+                // Hide all pages
+                dashboard.classList.remove('active');
+                coursesPage.classList.remove('active');
+                assignmentsPage.classList.remove('active');
+                // Show the selected page
+                if (page === 'dashboard') {
+                    dashboard.classList.add('active');
+                } else if (page === 'courses') {
+                    coursesPage.classList.add('active');
+                } else if (page === 'assignments') {
+                    assignmentsPage.classList.add('active');
+                }
+            });
+        });
+    
+        // Set initial state
+        dashboard.classList.add('active');
+    }
 });
