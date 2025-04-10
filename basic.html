@@ -80,21 +80,23 @@
                 <div class="avatar">JS</div>
             </div>
         </div>
-
-
+    
         <div class="main-content">
             <div class="sidebar">
-                <div class="menu-item active"><span class="menu-text">Dashboard</span></div>
-                <div class="menu-item"><span class="menu-text">Courses</span></div>
-                <div class="menu-item"><span class="menu-text">Assignments</span></div>
-                <div class="menu-item"><span class="menu-text">Grades</span></div>
-                <div class="menu-item"><span class="menu-text">Resources</span></div>
-                <div class="menu-item"><span class="menu-text">Messages</span></div>
-                <div class="menu-item"><span class="menu-text">Library</span></div>
-                <div class="menu-item"><span class="menu-text">Settings</span></div>
+                <div class="menu-item active">
+                    <span class="menu-icon">📊</span><span class="menu-text">Dashboard</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-icon">📚</span><span class="menu-text">Courses</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-icon">📝</span><span class="menu-text">Assignments</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-icon">🎓</span><span class="menu-text">Grades</span>
+                </div>
             </div>
-
-
+    
             <div class="dashboard">
                 <!-- Attendance Summary -->
                 <div class="dashboard-card attendance-summary-card">
@@ -138,8 +140,7 @@
                         </div>
                     </div>
                 </div>
-
-
+    
                 <!-- Notice Board -->
                 <div class="dashboard-card notice-board-card">
                     <div class="card-header">
@@ -149,8 +150,7 @@
                         <div class="notice-list"></div>
                     </div>
                 </div>
-
-
+    
                 <!-- Course Quick Links -->
                 <div class="dashboard-card course-links-card">
                     <div class="card-header">
@@ -198,9 +198,8 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="courses-page" style="display: none;">
+    
+            <div class="courses-page">
                 <div class="courses-header">
                     <h2 class="courses-title">Your Courses</h2>
                     <div class="courses-action">Semester: Spring 2025</div>
@@ -224,7 +223,7 @@
                             <a href="https://drive.google.com/file/d/1Nx6TunovD3sInL_yfh8hCyW1fu7z8lyV/view" target="_blank" class="course-action-btn">View Resources</a>
                         </div>
                     </div>
-           
+               
                     <!-- Course 2: Engineering Mathematics -->
                     <div class="course-card">
                         <div class="course-card-header">
@@ -243,7 +242,7 @@
                             <a href="https://drive.google.com/drive/folders/1OaKsOGy4espUeymo6Lirt0klkV320nlB" target="_blank" class="course-action-btn">View Resources</a>
                         </div>
                     </div>
-           
+               
                     <!-- Course 3: Engineering Mechanics -->
                     <div class="course-card">
                         <div class="course-card-header">
@@ -259,10 +258,10 @@
                                 <div class="progress-fill" style="width: 85%;"></div>
                                 <span class="progress-text">85% Complete</span>
                             </div>
-                            <a href="https://drive.google.com/file/d/0B62OigwAQAtdeS0tV2xOdWxZbzA/edit?resourcekey=0-w9Nasce7z5NecV_DLb6l4A " target="_blank" class="course-action-btn">View Resources</a>
+                            <a href="https://drive.google.com/file/d/0B62OigwAQAtdeS0tV2xOdWxZbzA/edit?resourcekey=0-w9Nasce7z5NecV_DLb6l4A" target="_blank" class="course-action-btn">View Resources</a>
                         </div>
                     </div>
-           
+               
                     <!-- Course 4: English For Engineers -->
                     <div class="course-card">
                         <div class="course-card-header">
@@ -278,23 +277,108 @@
                                 <div class="progress-fill" style="width: 88%;"></div>
                                 <span class="progress-text">88% Complete</span>
                             </div>
-                            <a href="https://drive.google.com/drive/folders/0B2Q8XuO2ebzxMEYzb0RYV1NBZVU?resourcekey=0-BWzZkxRhza1OYEyUK_tXEg " target="_blank" class="course-action-btn">View Resources</a>
+                            <a href="https://drive.google.com/drive/folders/0B2Q8XuO2ebzxMEYzb0RYV1NBZVU?resourcekey=0-BWzZkxRhza1OYEyUK_tXEg" target="_blank" class="course-action-btn">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="assignments-page">
+                <div class="assignments-header">
+                    <h2 class="assignments-title">Assignments</h2>
+                </div>
+                <div class="assignments-grid">
+                    <div class="assignment-card" data-subject="physics">
+                        <div class="assignment-card-header">
+                            <h3 class="assignment-name">Engineering Physics</h3>
+                            <span class="instructor">Taught by Prof. John Doe</span>
+                        </div>
+                        <div class="assignment-content">
+                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                        </div>
+                    </div>
+                    <div class="assignment-card" data-subject="mathematics">
+                        <div class="assignment-card-header">
+                            <h3 class="assignment-name">Engineering Mathematics</h3>
+                            <span class="instructor">Taught by Prof. Jane Smith</span>
+                        </div>
+                        <div class="assignment-content">
+                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                        </div>
+                    </div>
+                    <div class="assignment-card" data-subject="mechanics">
+                        <div class="assignment-card-header">
+                            <h3 class="assignment-name">Engineering Mechanics</h3>
+                            <span class="instructor">Taught by Prof. Emily Brown</span>
+                        </div>
+                        <div class="assignment-content">
+                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                        </div>
+                    </div>
+                    <div class="assignment-card" data-subject="english">
+                        <div class="assignment-card-header">
+                            <h3 class="assignment-name">English for Engineers</h3>
+                            <span class="instructor">Taught by Prof. Michael Lee</span>
+                        </div>
+                        <div class="assignment-content">
+                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-
-        <footer class="footer">
-            <div class="footer-content">
-                <div></div>
-                <div>
-                    <a href="#" class="footer-btn">Home</a>
-                    <a href="#" class="footer-btn">Courses</a>
+    <div class="assignments-page">
+        <div class="assignments-header">
+            <h2 class="assignments-title">Assignments</h2>
+        </div>
+        <div class="assignments-grid">
+            <div class="assignment-card" data-subject="physics">
+                <div class="assignment-card-header">
+                    <h3 class="assignment-name">Engineering Physics</h3>
+                    <span class="instructor">Taught by Prof. John Doe</span>
+                </div>
+                <div class="assignment-content">
+                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
                 </div>
             </div>
-        </footer>
+            <div class="assignment-card" data-subject="mathematics">
+                <div class="assignment-card-header">
+                    <h3 class="assignment-name">Engineering Mathematics</h3>
+                    <span class="instructor">Taught by Prof. Jane Smith</span>
+                </div>
+                <div class="assignment-content">
+                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                </div>
+            </div>
+            <div class="assignment-card" data-subject="mechanics">
+                <div class="assignment-card-header">
+                    <h3 class="assignment-name">Engineering Mechanics</h3>
+                    <span class="instructor">Taught by Prof. Emily Brown</span>
+                </div>
+                <div class="assignment-content">
+                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                </div>
+            </div>
+            <div class="assignment-card" data-subject="english">
+                <div class="assignment-card-header">
+                    <h3 class="assignment-name">English for Engineers</h3>
+                    <span class="instructor">Taught by Prof. Michael Lee</span>
+                </div>
+                <div class="assignment-content">
+                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -309,13 +393,13 @@
                 document.getElementById('loginBox').style.display = 'block';
                 document.getElementById('loginBackground').style.display = 'block';
             }, 3000);
-   
+    
             // Handle login
             const loginButton = document.getElementById('loginButton');
             loginButton.addEventListener('click', () => {
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
-   
+    
                 if (username === 'js2025' && password === 'password') {
                     document.getElementById('loginBox').style.display = 'none';
                     document.getElementById('loginBackground').style.display = 'none';
@@ -326,19 +410,21 @@
                     alert('Invalid credentials. Please try again.');
                 }
             });
-   
-            // Initialize dashboard
+    
+            // Initialize dashboard after login
             function initializeDashboard() {
                 renderAttendanceChart();
                 setAttendanceProgressBars();
                 populateNoticeBoard();
             }
-   
-            // Render attendance chart
+    
+            // Render the circular attendance chart using Chart.js
             function renderAttendanceChart() {
                 const ctx = document.getElementById('attendanceChart').getContext('2d');
-                const overallAttendance = 85;
-   
+                const percentages = document.querySelectorAll('.attendance-progress');
+                const total = Array.from(percentages).reduce((sum, bar) => sum + parseInt(bar.getAttribute('data-percentage') || 0), 0);
+                const overallAttendance = Math.round(total / percentages.length);
+    
                 new Chart(ctx, {
                     type: 'doughnut',
                     data: {
@@ -357,11 +443,28 @@
                             legend: { display: false },
                             tooltip: { enabled: false }
                         }
-                    }
+                    },
+                    plugins: [{
+                        id: 'textCenter',
+                        beforeDraw: function(chart) {
+                            const width = chart.width;
+                            const height = chart.height;
+                            const ctx = chart.ctx;
+                            ctx.save();
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            const fontSize = Math.min(height / 15, 40);
+                            ctx.font = `${fontSize}px sans-serif`;
+                            const text = `${overallAttendance}%`;
+                            ctx.fillStyle = '#ffffff';
+                            ctx.fillText(text, width / 2, height / 2);
+                            ctx.restore();
+                        }
+                    }]
                 });
             }
-   
-            // Set attendance progress bars
+    
+            // Set the width of attendance progress bars
             function setAttendanceProgressBars() {
                 const progressBars = document.querySelectorAll('.attendance-progress');
                 progressBars.forEach(bar => {
@@ -369,17 +472,17 @@
                     bar.style.width = `${percentage}%`;
                 });
             }
-   
-            // Populate notice board
+    
+            // Populate the notice board with sample notices
             function populateNoticeBoard() {
                 const noticeList = document.querySelector('.notice-list');
                 const notices = [
-                    { title: 'Physics Exam', content: 'Exam scheduled for next week.' },
-                    { title: 'Math Assignment', content: 'Submit by Friday.' },
-                    { title: 'Mechanics Project', content: 'Group project due in 2 weeks.' },
-                    { title: 'English Presentation', content: 'Prepare for next class.' }
+                    { title: 'Physics Exam', content: 'Exam scheduled for next week.', progress: 60 },
+                    { title: 'Math Assignment', content: 'Submit by Friday.', progress: 80 },
+                    { title: 'Mechanics Project', content: 'Group project due in 2 weeks.', progress: 45 },
+                    { title: 'English Presentation', content: 'Prepare for next class.', progress: 70 }
                 ];
-   
+    
                 notices.forEach(notice => {
                     const noticeItem = document.createElement('div');
                     noticeItem.classList.add('notice-item');
@@ -388,32 +491,45 @@
                             <h4>${notice.title}</h4>
                             <p>${notice.content}</p>
                         </div>
+                        <div class="notice-progress-container">
+                            <div class="notice-progress" style="width: ${notice.progress}%"></div>
+                            <span class="notice-percentage">${notice.progress}%</span>
+                        </div>
                     `;
                     noticeList.appendChild(noticeItem);
                 });
             }
-   
+    
             // Setup navigation
             function setupNavigation() {
                 const menuItems = document.querySelectorAll('.menu-item');
                 const dashboard = document.querySelector('.dashboard');
                 const coursesPage = document.querySelector('.courses-page');
-   
+                const assignmentsPage = document.querySelector('.assignments-page');
+    
                 menuItems.forEach(item => {
                     item.addEventListener('click', () => {
                         menuItems.forEach(i => i.classList.remove('active'));
                         item.classList.add('active');
-   
+    
                         const page = item.querySelector('.menu-text').textContent.toLowerCase();
+                        // Hide all pages
+                        dashboard.classList.remove('active');
+                        coursesPage.classList.remove('active');
+                        assignmentsPage.classList.remove('active');
+                        // Show the selected page
                         if (page === 'dashboard') {
-                            dashboard.style.display = 'grid';
-                            coursesPage.style.display = 'none';
+                            dashboard.classList.add('active');
                         } else if (page === 'courses') {
-                            dashboard.style.display = 'none';
-                            coursesPage.style.display = 'block';
+                            coursesPage.classList.add('active');
+                        } else if (page === 'assignments') {
+                            assignmentsPage.classList.add('active');
                         }
                     });
                 });
+    
+                // Set initial state
+                dashboard.classList.add('active');
             }
         });
     </script>
