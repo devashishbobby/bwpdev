@@ -13,14 +13,12 @@
     --glow-radius: 10px; /* Reduced glow radius */
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 body {
     background-color: var(--dark);
@@ -34,7 +32,6 @@ body {
     background-attachment: fixed;
 }
 
-
 body::before {
     content: '';
     position: fixed;
@@ -45,7 +42,6 @@ body::before {
     background: rgba(12, 14, 20, 0.6); /* Dark overlay to maintain readability, slightly reduced opacity */
     z-index: -2; /* Behind particles but above background image */
 }
-
 
 .particles-background {
     position: fixed;
@@ -58,7 +54,6 @@ body::before {
     background: none; /* Remove gradient to let image show through */
 }
 
-
 .particle {
     position: absolute;
     border-radius: 50%;
@@ -67,7 +62,6 @@ body::before {
     animation: float linear infinite;
     opacity: 0.4;
 }
-
 
 /* Loading Screen Styles */
 #loadingScreen {
@@ -84,13 +78,11 @@ body::before {
     align-items: center;
 }
 
-
 .loader-container {
     position: relative;
     width: 200px;
     height: 200px;
 }
-
 
 .loader-circle {
     position: absolute;
@@ -103,7 +95,6 @@ body::before {
     box-shadow: 0 0 var(--glow-radius) rgba(0, 183, 217, 0.3); /* Softer glow */
 }
 
-
 .loader-circle:nth-child(2) {
     width: 80%;
     height: 80%;
@@ -115,7 +106,6 @@ body::before {
     box-shadow: 0 0 var(--glow-radius) rgba(122, 42, 230, 0.3);
 }
 
-
 .loader-circle:nth-child(3) {
     width: 60%;
     height: 60%;
@@ -125,7 +115,6 @@ body::before {
     animation-duration: 1s;
     box-shadow: 0 0 var(--glow-radius) rgba(0, 204, 142, 0.3);
 }
-
 
 .loader-text {
     position: absolute;
@@ -139,7 +128,6 @@ body::before {
     text-shadow: 0 0 5px rgba(0, 183, 217, 0.2);
 }
 
-
 .loader-progress {
     margin-top: 30px;
     width: 300px;
@@ -149,7 +137,6 @@ body::before {
     overflow: hidden;
 }
 
-
 .loader-bar {
     height: 100%;
     width: 0%;
@@ -158,26 +145,22 @@ body::before {
     box-shadow: 0 0 10px rgba(0, 183, 217, 0.2);
 }
 
-
 .loader-status {
     margin-top: 15px;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
 }
 
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
 
 @keyframes progress {
     0% { width: 0%; }
     50% { width: 65%; }
     100% { width: 100%; }
 }
-
 
 /* Main Portal Styles */
 .portal-container {
@@ -186,7 +169,6 @@ body::before {
     min-height: 100vh;
     padding: 20px;
 }
-
 
 .portal-header {
     display: flex;
@@ -202,12 +184,10 @@ body::before {
     border: 1px solid rgba(0, 183, 217, 0.1);
 }
 
-
 .logo {
     display: flex;
     align-items: center;
 }
-
 
 .logo-icon {
     width: 40px;
@@ -219,7 +199,6 @@ body::before {
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 183, 217, 0.3);
 }
-
 
 .logo-icon::before {
     content: '';
@@ -233,7 +212,6 @@ body::before {
     animation: shine 2s infinite;
 }
 
-
 .logo-text {
     font-size: 1.8rem;
     font-weight: 700;
@@ -241,19 +219,16 @@ body::before {
     text-shadow: 0 0 3px rgba(0, 183, 217, 0.1); /* Reduced shadow */
 }
 
-
 .user-profile {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-
 .notification-badge {
     position: relative;
     cursor: pointer;
 }
-
 
 .notification-badge .count {
     position: absolute;
@@ -270,11 +245,9 @@ body::before {
     box-shadow: 0 0 5px rgba(204, 42, 74, 0.3);
 }
 
-
 .notification-badge svg {
     fill: #ffffff; /* Change notification bell to white */
 }
-
 
 .avatar {
     width: 45px;
@@ -292,19 +265,16 @@ body::before {
     box-shadow: 0 0 10px rgba(0, 183, 217, 0.2);
 }
 
-
 .avatar:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(0, 183, 217, 0.3);
 }
-
 
 .main-content {
     display: grid;
     grid-template-columns: 250px 1fr;
     gap: 20px;
 }
-
 
 .sidebar {
     background: rgba(20, 24, 36, 0.7);
@@ -317,7 +287,6 @@ body::before {
     border: 1px solid rgba(0, 183, 217, 0.1);
 }
 
-
 .menu-item {
     display: flex;
     align-items: center;
@@ -329,7 +298,6 @@ body::before {
     color: #ffffff; /* Explicitly set to white */
 }
 
-
 .menu-item.active {
     background: linear-gradient(135deg, rgba(0, 183, 217, 0.15), rgba(122, 42, 230, 0.15));
     box-shadow: 0 5px 15px rgba(0, 183, 217, 0.1),
@@ -337,12 +305,10 @@ body::before {
     border: 1px solid rgba(0, 183, 217, 0.1);
 }
 
-
 .menu-item:hover:not(.active) {
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 0 5px rgba(0, 183, 217, 0.1);
 }
-
 
 .menu-icon {
     width: 24px;
@@ -351,19 +317,27 @@ body::before {
     opacity: 0.8;
 }
 
-
 .menu-text {
     font-size: 1rem;
     color: #ffffff; /* Explicitly set to white */
 }
 
+.dashboard,
+.courses-page,
+.assignments-page {
+    display: none; /* Hide all pages by default */
+}
+
+.dashboard.active,
+.courses-page.active,
+.assignments-page.active {
+    display: grid; /* Show pages when active */
+}
 
 .dashboard {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
 }
-
 
 .dashboard-card {
     background: rgba(20, 24, 36, 0.7);
@@ -378,13 +352,11 @@ body::before {
     border: 1px solid rgba(0, 183, 217, 0.1);
 }
 
-
 .dashboard-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2),
                 0 0 15px rgba(0, 183, 217, 0.2);
 }
-
 
 .card-header {
     display: flex;
@@ -393,7 +365,6 @@ body::before {
     margin-bottom: 15px;
 }
 
-
 .card-title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -401,14 +372,12 @@ body::before {
     text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
 }
 
-
 /* Explicitly target the specific card titles */
 .attendance-summary-card .card-title,
 .notice-board-card .card-title,
-.course-links-card .card-title { /* Updated to target .course-links-card */
+.course-links-card .card-title {
     color: #ffffff; /* Force white text for these specific cards */
 }
-
 
 .card-action {
     color: var(--primary);
@@ -417,23 +386,19 @@ body::before {
     transition: color 0.3s, text-shadow 0.3s;
 }
 
-
 .card-action:hover {
     color: var(--accent);
     text-shadow: 0 0 5px rgba(0, 194, 204, 0.2);
 }
 
-
 .card-content {
     color: rgba(255, 255, 255, 0.9); /* Improved readability */
 }
-
 
 /* Attendance Summary Card Specific Styles */
 .attendance-summary-card {
     grid-column: span 2;
 }
-
 
 .attendance-summary-content {
     display: grid;
@@ -441,34 +406,41 @@ body::before {
     gap: 20px;
 }
 
-
 .attendance-chart-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px; /* Add spacing below the heading */
 }
 
+#attendanceChart {
+    width: 150px !important; /* Match HTML width attribute */
+    height: 150px !important; /* Match HTML height attribute */
+    max-width: none; /* Prevent scaling issues */
+    z-index: 2; /* Ensure text is above other elements */
+}
 
 .attendance-subject-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    justify-content: center;
 }
-
 
 .attendance-subject {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 10px;
 }
-
 
 .subject-name {
     font-size: 1rem;
     color: #ffffff; /* Stronger contrast */
 }
-
 
 .attendance-progress-container {
     position: relative;
@@ -480,15 +452,14 @@ body::before {
     align-items: center;
 }
 
-
 .attendance-progress {
     height: 100%;
     background: linear-gradient(90deg, rgba(0, 183, 217, 0.8), rgba(0, 194, 204, 0.8));
     border-radius: 6px;
     transition: width 0.5s ease-in-out;
     box-shadow: 0 0 5px rgba(0, 183, 217, 0.3);
+    width: 0; /* Will be set dynamically via JS */
 }
-
 
 .attendance-percentage {
     position: absolute;
@@ -499,14 +470,12 @@ body::before {
     z-index: 5;
 }
 
-
 /* Course Quick Links */
 .course-link-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
-
 
 .course-link-item {
     background: linear-gradient(45deg, var(--dark-surface-2), rgba(28, 33, 51, 0.7));
@@ -522,14 +491,12 @@ body::before {
     align-items: center;
 }
 
-
 .course-link-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
                 0 0 10px rgba(0, 183, 217, 0.2);
     border: 1px solid rgba(0, 183, 217, 0.2);
 }
-
 
 .course-link-item::before {
     content: '';
@@ -541,11 +508,9 @@ body::before {
     background: linear-gradient(90deg, rgba(0, 183, 217, 0.8), rgba(0, 194, 204, 0.8));
 }
 
-
 .course-link-content {
     width: 100%;
 }
-
 
 .course-link-item h3 {
     font-size: 1rem;
@@ -553,11 +518,9 @@ body::before {
     color: #ffffff; /* Stronger contrast */
 }
 
-
 .course-progress {
     margin-top: 15px;
 }
-
 
 .course-progress .progress-bar {
     height: 8px;
@@ -567,7 +530,6 @@ body::before {
     position: relative;
     margin-bottom: 5px;
 }
-
 
 .course-progress .progress-bar::before {
     content: '';
@@ -579,75 +541,37 @@ body::before {
     box-shadow: 0 0 5px rgba(0, 183, 217, 0.2);
 }
 
-
 .course-link-item[data-course="physics"] .progress-bar::before {
     width: 78%;
 }
-
 
 .course-link-item[data-course="mathematics"] .progress-bar::before {
     width: 92%;
 }
 
-
 .course-link-item[data-course="mechanics"] .progress-bar::before {
     width: 85%;
 }
 
-
 .course-link-item[data-course="english"] .progress-bar::before {
     width: 88%;
 }
-
 
 .progress-text {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.7);
 }
 
-
-/* Attendance Summary - Circular Progress Indicator */
-.attendance-chart-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-}
-
-
-#attendanceChart {
-    width: 100%;
-    height: 100%;
-}
-
-
-/* Fine-tune the subject list for better alignment */
-.attendance-subject-list {
-    justify-content: center;
-}
-
-
-.attendance-subject {
-    margin-bottom: 10px;
-}
-
-
-.attendance-progress {
-    width: 0; /* Will be set dynamically via JS */
-}
-
-
 /* Notice Board Styles */
 .notice-board-card {
     grid-column: span 1;
 }
-
 
 .notice-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
-
 
 .notice-item {
     background: linear-gradient(45deg, #4a1a2c, #2e1a2c);
@@ -661,19 +585,16 @@ body::before {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-
 .notice-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
                 0 0 10px rgba(0, 183, 217, 0.2);
 }
 
-
 .notice-content {
     color: #ffffff; /* Stronger contrast */
     font-size: 0.9rem;
 }
-
 
 /* Removed progress bar from notice board */
 .notice-progress-container,
@@ -682,74 +603,240 @@ body::before {
     display: none;
 }
 
-
-/* Adjust layout for smaller screens */
-@media (max-width: 768px) {
-    .notice-list {
-        grid-template-columns: 1fr;
-    }
-
-
-    .attendance-summary-content {
-        grid-template-columns: 1fr;
-    }
-
-
-    .attendance-chart-container {
-        margin: 0 auto;
-    }
+/* Courses Page Styles */
+.courses-page {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
 }
 
-
-@keyframes float {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+.courses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+    margin-bottom: 20px;
 }
 
-
-@keyframes shine {
-    0% { left: -100%; }
-    100% { left: 100%; }
+.courses-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
 }
 
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .attendance-summary-content {
-        grid-template-columns: 1fr;
-    }
-   
-    .course-link-grid {
-        grid-template-columns: 1fr;
-    }
+.course-action-btn {
+    display: block; /* Ensures <a> takes full width like the button */
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center; /* Centers text in <a> */
+    text-decoration: none; /* Removes underline from <a> */
 }
 
-
-@media (max-width: 1024px) {
-    .main-content {
-        grid-template-columns: 1fr;
-    }
-   
-    .sidebar {
-        height: auto;
-    }
-   
-    .attendance-summary-card {
-        grid-column: span 1;
-    }
+.course-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 183, 217, 0.3);
 }
 
-
-@media (max-width: 768px) {
-    .dashboard {
-        grid-template-columns: 1fr;
-    }
-   
-    .login-box {
-        width: 90%;
-    }
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Forces 2 columns */
+    gap: 20px;
 }
 
+.course-card {
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(0, 183, 217, 0.1);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 183, 217, 0.2);
+}
+
+.course-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 183, 217, 0.1);
+}
+
+.course-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.course-code {
+    font-size: 0.9rem;
+    color: var(--primary);
+    background: rgba(0, 183, 217, 0.1);
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.course-card-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.course-card-content p strong {
+    color: #ffffff;
+}
+
+.course-progress-bar {
+    position: relative;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 183, 217, 0.3);
+}
+
+.progress-text {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Assignments Page Styles */
+.assignments-page {
+    display: none; /* Hidden by default, shown via JS */
+    width: 100%;
+    padding: 20px;
+}
+
+.assignments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+    margin-bottom: 20px;
+}
+
+.assignments-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
+}
+
+.assignments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns by default */
+    gap: 20px;
+}
+
+.assignment-card {
+    background: linear-gradient(45deg, var(--dark-surface-2), rgba(28, 33, 51, 0.7));
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(0, 183, 217, 0.1);
+    position: relative;
+    overflow: hidden;
+    min-height: 200px; /* Ensure enough space for content */
+}
+
+.assignment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 183, 217, 0.2);
+}
+
+.assignment-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(0, 183, 217, 0.8), rgba(0, 194, 204, 0.8));
+}
+
+.assignment-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 183, 217, 0.1);
+}
+
+.assignment-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.instructor {
+    font-size: 0.9rem;
+    color: var(--primary);
+    background: rgba(0, 183, 217, 0.1);
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.assignment-content {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.assignment-item {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.assignment-link {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.assignment-link:hover {
+    color: var(--accent-alt);
+    text-shadow: 0 0 5px rgba(204, 0, 153, 0.2);
+}
+
+.assignment-link::after {
+    content: " (PDF)";
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
 
 /* Login Page Styles */
 .login-background {
@@ -762,7 +849,6 @@ body::before {
     z-index: -1;
     display: none;
 }
-
 
 .login-box {
     position: fixed;
@@ -781,12 +867,10 @@ body::before {
     z-index: 999;
 }
 
-
 .login-heading {
     text-align: center;
     margin-bottom: 20px;
 }
-
 
 .login-title {
     font-size: 2rem;
@@ -794,18 +878,15 @@ body::before {
     text-shadow: 0 0 5px rgba(0, 183, 217, 0.2);
 }
 
-
 .login-subtitle {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
 }
 
-
 .input-group {
     position: relative;
     margin-bottom: 20px;
 }
-
 
 .input-icon {
     position: absolute;
@@ -814,7 +895,6 @@ body::before {
     transform: translateY(-50%);
     color: var(--primary);
 }
-
 
 .input-field {
     width: 100%;
@@ -827,13 +907,11 @@ body::before {
     transition: border-color 0.3s;
 }
 
-
 .input-field:focus {
     border-color: var(--accent);
     outline: none;
     box-shadow: 0 0 10px rgba(0, 194, 204, 0.2);
 }
-
 
 .login-button {
     width: 100%;
@@ -847,12 +925,10 @@ body::before {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-
 .login-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 183, 217, 0.3);
 }
-
 
 .login-options {
     display: flex;
@@ -862,188 +938,67 @@ body::before {
     margin-top: 15px;
 }
 
-
 .login-option {
     cursor: pointer;
     transition: color 0.3s;
 }
 
-
 .login-option:hover {
     color: var(--accent);
 }
-/* Courses Page Styles */
-.courses-page {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px;
-}
 
-
-.courses-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: rgba(20, 24, 36, 0.7);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
-    border: 1px solid rgba(0, 183, 217, 0.1);
-}
-
-
-.courses-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #ffffff;
-    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
-}
-
-
-.course-action-btn {
-    display: block; /* Ensures <a> takes full width like the button */
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border: none;
-    border-radius: 8px;
-    color: #ffffff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center; /* Centers text in <a> */
-    text-decoration: none; /* Removes underline from <a> */
-}
-
-
-.course-action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 183, 217, 0.3);
-}
-
-
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Forces 2 columns */
-    gap: 20px;
-}
-
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .courses-grid {
-        grid-template-columns: 1fr; /* Switches to 1 column on smaller screens */
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .attendance-summary-content {
+        grid-template-columns: 1fr;
+    }
+    .course-link-grid {
+        grid-template-columns: 1fr;
     }
 }
 
-
-.course-card {
-    background: rgba(20, 24, 36, 0.7);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(0, 183, 217, 0.1);
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        height: auto;
+    }
+    .attendance-summary-card {
+        grid-column: span 1;
+    }
 }
 
-
-.course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 183, 217, 0.2);
-}
-
-
-.course-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0, 183, 217, 0.1);
-}
-
-
-.course-name {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #ffffff;
-}
-
-
-.course-code {
-    font-size: 0.9rem;
-    color: var(--primary);
-    background: rgba(0, 183, 217, 0.1);
-    padding: 2px 8px;
-    border-radius: 5px;
-}
-
-
-.course-card-content p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
-    margin: 5px 0;
-}
-
-
-.course-card-content p strong {
-    color: #ffffff;
-}
-
-
-.course-progress-bar {
-    position: relative;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 15px 0;
-}
-
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    border-radius: 5px;
-    transition: width 0.5s ease-in-out;
-    box-shadow: 0 0 5px rgba(0, 183, 217, 0.3);
-}
-
-
-.progress-text {
-    position: absolute;
-    top: -20px;
-    right: 0;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-
-.course-action-btn {
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border: none;
-    border-radius: 8px;
-    color: #ffffff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-
-.course-action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 183, 217, 0.3);
-}
-
-
-/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    .login-box {
+        width: 90%;
+    }
+    .notice-list {
+        grid-template-columns: 1fr;
+    }
+    .attendance-summary-content {
+        grid-template-columns: 1fr;
+    }
+    .attendance-chart-container {
+        margin: 0 auto;
+    }
     .courses-grid {
         grid-template-columns: 1fr;
     }
+    .assignments-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
