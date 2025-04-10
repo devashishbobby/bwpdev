@@ -39,8 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render the circular attendance chart using Chart.js
     function renderAttendanceChart() {
         const ctx = document.getElementById('attendanceChart').getContext('2d');
-        const overallAttendance = 85; // Example overall attendance percentage
-
+        // Calculate average attendance from subject data
+        const percentages = document.querySelectorAll('.attendance-progress');
+        const total = Array.from(percentages).reduce((sum, bar) => sum + parseInt(bar.getAttribute('data-percentage')), 0);
+        const overallAttendance = Math.round(total / percentages.length);
+    
         new Chart(ctx, {
             type: 'doughnut',
             data: {
@@ -63,7 +66,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         enabled: false
                     }
                 }
-            }
+            },
+            plugins: [{
+                id: 'textCenter',
+                beforeDraw: function(chart) {
+                    const width = chart.width;
+                    const height = chart.height;
+                    const ctx = chart.ctx;
+                    ctx.restore();
+                    const fontSize = (height / 114).toFixed(2);
+                    ctx.font = `${fontSize}em sans-serif`;
+                    ctx.textBaseline = "middle";
+                    const text = `${overallAttendance}%`;
+                    const textX = Math.round((width - ctx.measureText(text).width) / 2);
+                    const textY = height / 2;
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillText(text, textX, textY);
+                    ctx.save();
+                }
+            }]
         });
     }
 
