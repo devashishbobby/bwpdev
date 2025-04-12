@@ -1136,6 +1136,14 @@ body::before {
     border-radius: 10px;
 }
 
+.notification-panel {
+    display: none;
+}
+
+.notification-panel.active {
+    display: block;
+}
+
 @media (max-width: 768px) {
     .quiz-container {
         padding: 15px;
