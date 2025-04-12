@@ -416,50 +416,51 @@
                 }
         
                 // Render the circular attendance chart using Chart.js
+                // Render the circular attendance chart using Chart.js
                 function renderAttendanceChart() {
                     const ctx = document.getElementById('attendanceChart').getContext('2d');
                     const percentages = document.querySelectorAll('.attendance-progress');
                     const total = Array.from(percentages).reduce((sum, bar) => sum + parseInt(bar.getAttribute('data-percentage') || 0), 0);
                     const overallAttendance = Math.round(total / percentages.length);
-        
+
                     new Chart(ctx, {
                         type: 'doughnut',
                         data: {
-                            datasets: [{
-                                data: [overallAttendance, 100 - overallAttendance],
-                                backgroundColor: ['#02d8ff', 'rgba(255, 255, 255, 0.1)'],
-                                borderWidth: 0,
-                                circumference: 360,
-                                cutout: '80%',
-                            }]
+                        datasets: [{
+                            data: [overallAttendance, 100 - overallAttendance],
+                            backgroundColor: ['#02d8ff', 'rgba(255, 255, 255, 0.1)'],
+                            borderWidth: 0,
+                            circumference: 360,
+                            cutout: '80%',
+                         }]
                         },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: { display: false },
-                                tooltip: { enabled: false }
-                            }
-                        },
-                        plugins: [{
-                            id: 'textCenter',
-                            beforeDraw: function(chart) {
-                                const width = chart.width;
-                                const height = chart.height;
-                                const ctx = chart.ctx;
-                                ctx.save();
-                                ctx.textAlign = 'center';
-                                ctx.textBaseline = 'middle';
-                                const fontSize = Math.min(height / 15, 40);
-                                ctx.font = `${fontSize}px sans-serif`;
-                                const text = `${overallAttendance}%`;
-                                ctx.fillStyle = '#ffffff';
-                                ctx.fillText(text, width / 2, height / 2);
-                                ctx.restore();
-                            }
-                        }]
-                    });
-                }
+                    options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                    }
+                },
+                    plugins: [{
+                    id: 'textCenter',
+                        beforeDraw: function(chart) {
+                            const width = chart.width;
+                            const height = chart.height;
+                            const ctx = chart.ctx;
+                            ctx.save();
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            const fontSize = Math.min(height / 10, 60); // Increased max font size to 60px, adjusted scaling factor from /15 to /10
+                            ctx.font = `${fontSize}px sans-serif`;
+                            const text = `${overallAttendance}%`;
+                            ctx.fillStyle = '#ffffff';
+                            ctx.fillText(text, width / 2, height / 2);
+                            ctx.restore();
+                        }
+                     }]
+                });
+            }
         
                 // Set the width of attendance progress bars
                 function setAttendanceProgressBars() {
@@ -631,6 +632,75 @@
                         }
                     });
                 }
+
+                // Setup notification bell functionality
+// Setup notification bell functionality
+function setupNotificationBell() {
+    const notificationBell = document.querySelector('.notification-badge');
+    const notificationPanel = document.createElement('div');
+    notificationPanel.className = 'notification-panel';
+    notificationPanel.style.display = 'none';
+    notificationPanel.style.position = 'absolute';
+    notificationPanel.style.top = '100%';
+    notificationPanel.style.right = '0';
+    notificationPanel.style.background = 'rgba(20, 24, 36, 0.9)';
+    notificationPanel.style.backdropFilter = 'blur(10px)';
+    notificationPanel.style.borderRadius = '10px';
+    notificationPanel.style.padding = '15px';
+    notificationPanel.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 183, 217, 0.2)';
+    notificationPanel.style.border = '1px solid rgba(0, 183, 217, 0.1)';
+    notificationPanel.style.zIndex = '200';
+    notificationPanel.style.minWidth = '250px';
+    notificationPanel.style.color = '#ffffff';
+
+    // Sample notifications
+    const notifications = [
+        { id: 1, message: 'New assignment posted for Physics.', time: '2h ago' },
+        { id: 2, message: 'Quiz results available for English.', time: '1d ago' }
+    ];
+
+    notificationPanel.innerHTML = `
+        <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Notifications</h3>
+        ${notifications.map(notif => `
+            <div style="margin-bottom: 10px;">
+                <p>${notif.message}</p>
+                <small style="color: rgba(255, 255, 255, 0.7);">${notif.time}</small>
+            </div>
+        `).join('')}
+        <button class="clear-notifications" style="width: 100%; padding: 8px; background: var(--primary); border: none; border-radius: 5px; color: #ffffff; cursor: pointer; margin-top: 10px;">Clear All</button>
+    `;
+
+    // Set the notification count dynamically
+    const countElement = notificationBell.querySelector('.count');
+    if (countElement) {
+        countElement.textContent = notifications.length;
+    }
+
+    notificationBell.appendChild(notificationPanel);
+
+    notificationBell.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isVisible = notificationPanel.style.display === 'block';
+        notificationPanel.style.display = isVisible ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!notificationBell.contains(event.target)) {
+            notificationPanel.style.display = 'none';
+        }
+    });
+
+    // Clear notifications functionality
+    const clearButton = notificationPanel.querySelector('.clear-notifications');
+    clearButton.addEventListener('click', () => {
+        notificationPanel.innerHTML = '<h3 style="font-size: 1.2rem; margin-bottom: 10px;">Notifications</h3><p>No new notifications.</p>';
+        const count = notificationBell.querySelector('.count');
+        if (count) count.style.display = 'none';
+    });
+}
+
+// Call the function after DOM is loaded
+setupNotificationBell();
             });
         </script>
     </body>
