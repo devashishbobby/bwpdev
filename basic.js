@@ -167,32 +167,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const dashboard = document.querySelector('.dashboard');
         const coursesPage = document.querySelector('.courses-page');
         const assignmentsPage = document.querySelector('.assignments-page');
-
-        if (!dashboard || !coursesPage || !assignmentsPage) {
+        const quizPage = document.querySelector('.quiz-page');
+    
+        if (!dashboard || !coursesPage || !assignmentsPage || !quizPage) {
             console.error('Navigation pages not found');
             return;
         }
-
+    
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
                 menuItems.forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
-
-                const page = item.querySelector('.menu-text')?.textContent.toLowerCase();
+    
+                const page = item.querySelector('.menu-text').textContent.toLowerCase();
                 dashboard.classList.remove('active');
                 coursesPage.classList.remove('active');
                 assignmentsPage.classList.remove('active');
-
+                quizPage.classList.remove('active');
+    
                 if (page === 'dashboard') {
                     dashboard.classList.add('active');
                 } else if (page === 'courses') {
                     coursesPage.classList.add('active');
                 } else if (page === 'assignments') {
                     assignmentsPage.classList.add('active');
+                } else if (page === 'quiz') {
+                    quizPage.classList.add('active');
                 }
             });
         });
-
+    
         dashboard.classList.add('active');
     }
 
