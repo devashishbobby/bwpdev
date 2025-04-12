@@ -22,10 +22,12 @@
 
 body {
     background-color: var(--dark);
-    color: var(--light); /* Default body text color */
+    color: var(--light);
     overflow-x: hidden;
     position: relative;
-    background-image: url('../RAIT.JPG'); /* Updated path to image in the root folder */
+    /*background-image: url('RAIT.JPG'); /* Try this absolute path */
+    background-image: url('../RAIT.JPG'); /* Relative from css folder */
+    /* OR: background-image: url('RAIT.JPG'); /* Relative from bwpm2 if image is there */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -985,6 +987,102 @@ body::before {
 
 .login-option:hover {
     color: var(--accent);
+}
+
+/* Quiz Page Styles */
+.quiz-page {
+    display: none; /* Hidden by default, shown via JS */
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.quiz-page.active {
+    display: grid;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+    margin-bottom: 20px;
+}
+
+.quiz-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
+}
+
+.quiz-action {
+    font-size: 1rem;
+    color: var(--primary);
+}
+
+.quiz-content {
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+}
+
+.quiz-question {
+    margin-bottom: 20px;
+}
+
+.quiz-question h3 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.quiz-option {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+}
+
+.quiz-option input {
+    margin-right: 10px;
+}
+
+.quiz-progress {
+    font-size: 1rem;
+    color: var(--primary);
+    background: rgba(0, 183, 217, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.quiz-result {
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+    background: rgba(20, 24, 36, 0.7);
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.quiz-result h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.quiz-result p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
 /* Responsive Design */
