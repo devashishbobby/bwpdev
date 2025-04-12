@@ -1095,6 +1095,27 @@ body::before {
     margin-bottom: 20px;
 }
 
+/* New Button Style for Go Back to Home */
+.go-home-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px; /* Space above the button */
+}
+
+.go-home-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 183, 217, 0.3);
+}
+
 @media (max-width: 768px) {
     .quiz-container {
         padding: 15px;
@@ -1105,6 +1126,10 @@ body::before {
     }
     .quiz-subject {
         font-size: 1rem;
+    }
+    .go-home-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 }
 
