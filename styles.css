@@ -992,26 +992,26 @@ body::before {
 /* Quiz Page Styles */
 .quiz-page {
     display: none; /* Hidden by default, shown via JS */
-    grid-template-columns: 1fr;
-    gap: 20px;
+    height: calc(100vh - 140px); /* Adjust height to fit within the portal container minus header */
     padding: 20px;
 }
 
 .quiz-page.active {
-    display: grid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.quiz-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
+.quiz-container {
+    text-align: center;
+    padding: 20px;
     background: rgba(20, 24, 36, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
     border: 1px solid rgba(0, 183, 217, 0.1);
-    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px; /* Limit the maximum width for better centering */
 }
 
 .quiz-title {
@@ -1019,11 +1019,21 @@ body::before {
     font-weight: 600;
     color: #ffffff;
     text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
+    margin-bottom: 20px;
 }
 
-.quiz-action {
-    font-size: 1rem;
-    color: var(--primary);
+.quiz-subject {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
+    margin-bottom: 20px;
+}
+
+.quiz-action .course-action-btn {
+    display: inline-block; /* Ensure button behaves as an inline element for centering */
+    width: auto; /* Remove fixed width to adjust to content */
+    padding: 10px 20px; /* Add horizontal padding for better appearance */
+    margin: 0 auto; /* Center the button */
 }
 
 .quiz-content {
@@ -1083,6 +1093,19 @@ body::before {
 .quiz-result p {
     font-size: 1.2rem;
     margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 15px;
+        max-width: 90%; /* Ensure it fits on smaller screens */
+    }
+    .quiz-title {
+        font-size: 1.5rem;
+    }
+    .quiz-subject {
+        font-size: 1rem;
+    }
 }
 
 /* Responsive Design */
