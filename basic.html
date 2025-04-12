@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -103,7 +104,7 @@
                     <div class="menu-item">
                         <span class="menu-icon">🎓</span><span class="menu-text">Grades</span>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" data-page="quiz">
                         <span class="menu-icon">❓</span><span class="menu-text">Quiz</span>
                     </div>
                 </div>
@@ -383,6 +384,11 @@
                     }
                 };
         
+                // Sample quiz data (replace with fetch from quiz.php later if needed)
+                const quizData = [
+                    { id: 1, subject: "English for Engineers", link: "quiz.php?subject=english" },
+                ];
+        
                 // Handle login
                 const loginButton = document.getElementById('loginButton');
                 loginButton.addEventListener('click', () => {
@@ -396,7 +402,7 @@
                         initializeDashboard();
                         setupNavigation();
                         populateProfile(studentData.student);
-                        setupProfileDropdown(); // Call this after login
+                        setupProfileDropdown();
                     } else {
                         alert('Invalid credentials. Please try again.');
                     }
@@ -498,50 +504,57 @@
                     const coursesPage = document.querySelector('.courses-page');
                     const assignmentsPage = document.querySelector('.assignments-page');
                     const quizPage = document.querySelector('.quiz-page');
-
+        
                     if (!dashboard || !coursesPage || !assignmentsPage || !quizPage) {
-                        console.error('Navigation pages not found');
+                        console.error('Navigation pages not found:', { dashboard, coursesPage, assignmentsPage, quizPage });
                         return;
                     }
-
+        
                     menuItems.forEach(item => {
                         item.addEventListener('click', () => {
+                            console.log('Click detected on:', item.querySelector('.menu-text').textContent);
                             menuItems.forEach(i => i.classList.remove('active'));
                             item.classList.add('active');
-
+        
                             const page = item.querySelector('.menu-text').textContent.toLowerCase();
                             dashboard.classList.remove('active');
                             coursesPage.classList.remove('active');
                             assignmentsPage.classList.remove('active');
                             quizPage.classList.remove('active');
-
+        
                             if (page === 'dashboard') {
+                                console.log('Switching to Dashboard');
                                 dashboard.classList.add('active');
                             } else if (page === 'courses') {
+                                console.log('Switching to Courses');
                                 coursesPage.classList.add('active');
                             } else if (page === 'assignments') {
+                                console.log('Switching to Assignments');
                                 assignmentsPage.classList.add('active');
                             } else if (page === 'quiz') {
-                                quizPage.classList.remove('active');
+                                console.log('Showing available quizzes');
+                                quizPage.classList.add('active');
+                                renderQuizOptions();
                             }
                         });
                     });
-
+        
                     dashboard.classList.add('active');
-
-                    // Setup course link navigation with debugging
+                    console.log('Initial navigation set to Dashboard');
+        
+                    // Course link navigation logic
                     const courseLinks = document.querySelectorAll('.course-link');
-                    console.log('Found course links:', courseLinks.length); // Debug log
+                    console.log('Found course links:', courseLinks.length);
                     if (courseLinks.length > 0) {
                         courseLinks.forEach(link => {
                             link.addEventListener('click', (e) => {
                                 e.preventDefault();
-                                console.log('Course link clicked'); // Debug log
+                                console.log('Course link clicked');
                                 const coursesMenuItem = Array.from(menuItems).find(item => 
                                     item.querySelector('.menu-text').textContent.toLowerCase() === 'courses'
                                 );
                                 if (coursesMenuItem) {
-                                    console.log('Courses menu item found, activating'); // Debug log
+                                    console.log('Activating Courses');
                                     menuItems.forEach(i => i.classList.remove('active'));
                                     coursesMenuItem.classList.add('active');
                                     dashboard.classList.remove('active');
@@ -556,6 +569,21 @@
                     } else {
                         console.error('No course links found in the DOM');
                     }
+                }
+        
+                // Render available quiz options
+                function renderQuizOptions() {
+                    const quizContainer = document.querySelector('.quiz-container');
+                    quizContainer.innerHTML = `
+                        <h2 class="quiz-title">Available Quizzes</h2>
+                        <div class="quiz-list">
+                            ${quizData.map(quiz => `
+                                <div class="quiz-item">
+                                    <a href="${quiz.link}" class="course-action-btn">${quiz.subject} Quiz</a>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
                 }
         
                 // Populate profile with JSON data
@@ -587,18 +615,18 @@
                         return;
                     }
         
-                    console.log('Setting up profile dropdown'); // Debug
+                    console.log('Setting up profile dropdown');
         
                     avatar.addEventListener('click', (e) => {
                         e.stopPropagation();
                         const isVisible = profileDropdown.style.display === 'block';
-                        console.log('Avatar clicked, current display:', profileDropdown.style.display); // Debug
+                        console.log('Avatar clicked, current display:', profileDropdown.style.display);
                         profileDropdown.style.display = isVisible ? 'none' : 'block';
                     });
         
                     document.addEventListener('click', (event) => {
                         if (!avatar.contains(event.target) && !profileDropdown.contains(event.target)) {
-                            console.log('Clicked outside, hiding dropdown'); // Debug
+                            console.log('Clicked outside, hiding dropdown');
                             profileDropdown.style.display = 'none';
                         }
                     });
