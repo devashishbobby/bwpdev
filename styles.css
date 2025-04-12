@@ -1144,6 +1144,57 @@ body::before {
     display: block;
 }
 
+/* Popup Styles */
+/* Popup Styles */
+.popup-overlay {
+    display: none;
+}
+
+.popup-card {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.popup-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 183, 217, 0.1);
+}
+
+.popup-card .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
+}
+
+.popup-card .close-btn {
+    transition: color 0.3s;
+}
+
+.popup-card .close-btn:hover {
+    color: var(--accent);
+    text-shadow: 0 0 5px rgba(0, 194, 204, 0.2);
+}
+
+.popup-card .card-content p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.popup-card .card-content p strong {
+    color: #ffffff;
+}
+
+.attendance-chart-container canvas {
+    width: 150px !important;
+    height: 150px !important;
+    max-width: none;
+}
+
 @media (max-width: 768px) {
     .quiz-container {
         padding: 15px;
