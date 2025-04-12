@@ -23,10 +23,8 @@
         <div class="loader-status">Initializing portal systems...</div>
     </div>
 
-
     <!-- Login Background -->
     <div class="login-background" id="loginBackground"></div>
-
 
     <!-- Login Box -->
     <div class="login-box" id="loginBox">
@@ -61,7 +59,6 @@
         </form>
     </div>
 
-
     <!-- Main Portal -->
     <div class="portal-container" id="portalContainer">
         <div class="portal-header">
@@ -77,10 +74,21 @@
                     </svg>
                     <span class="count">3</span>
                 </div>
-                <div class="avatar">JS</div>
+                <div class="avatar-container">
+                    <div class="avatar" id="userAvatar">JS</div>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="profile-info">
+                            <p><strong>Name:</strong> <span id="userName"></span></p>
+                            <p><strong>ID:</strong> <span id="userId"></span></p>
+                            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                            <p><strong>Program:</strong> <span id="userProgram"></span></p>
+                            <p><strong>Year:</strong> <span id="userYear"></span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    
+
         <div class="main-content">
             <div class="sidebar">
                 <div class="menu-item active">
@@ -96,7 +104,7 @@
                     <span class="menu-icon">🎓</span><span class="menu-text">Grades</span>
                 </div>
             </div>
-    
+
             <div class="dashboard">
                 <!-- Attendance Summary -->
                 <div class="dashboard-card attendance-summary-card">
@@ -140,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Notice Board -->
                 <div class="dashboard-card notice-board-card">
                     <div class="card-header">
@@ -150,7 +158,7 @@
                         <div class="notice-list"></div>
                     </div>
                 </div>
-    
+
                 <!-- Course Quick Links -->
                 <div class="dashboard-card course-links-card">
                     <div class="card-header">
@@ -198,7 +206,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="courses-page">
                 <div class="courses-header">
                     <h2 class="courses-title">Your Courses</h2>
@@ -282,7 +290,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="assignments-page">
                 <div class="assignments-header">
                     <h2 class="assignments-title">Assignments</h2>
@@ -294,8 +302,9 @@
                             <span class="instructor">Taught by Prof. John Doe</span>
                         </div>
                         <div class="assignment-content">
-                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/p1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/p2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/p3.pdf" class="assignment-link">Assignment 3.pdf</a> (Pending)</p>
                         </div>
                     </div>
                     <div class="assignment-card" data-subject="mathematics">
@@ -304,8 +313,8 @@
                             <span class="instructor">Taught by Prof. Jane Smith</span>
                         </div>
                         <div class="assignment-content">
-                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/m1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/m2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
                         </div>
                     </div>
                     <div class="assignment-card" data-subject="mechanics">
@@ -314,8 +323,7 @@
                             <span class="instructor">Taught by Prof. Emily Brown</span>
                         </div>
                         <div class="assignment-content">
-                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/em1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
                         </div>
                     </div>
                     <div class="assignment-card" data-subject="english">
@@ -324,8 +332,9 @@
                             <span class="instructor">Taught by Prof. Michael Lee</span>
                         </div>
                         <div class="assignment-content">
-                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                            <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/e1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/e2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/e3.pdf" class="assignment-link">Assignment 3.pdf</a> (Pending)</p>
                         </div>
                     </div>
                 </div>
@@ -333,57 +342,7 @@
         </div>
     </div>
 
-    <div class="assignments-page">
-        <div class="assignments-header">
-            <h2 class="assignments-title">Assignments</h2>
-        </div>
-        <div class="assignments-grid">
-            <div class="assignment-card" data-subject="physics">
-                <div class="assignment-card-header">
-                    <h3 class="assignment-name">Engineering Physics</h3>
-                    <span class="instructor">Taught by Prof. John Doe</span>
-                </div>
-                <div class="assignment-content">
-                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
-                </div>
-            </div>
-            <div class="assignment-card" data-subject="mathematics">
-                <div class="assignment-card-header">
-                    <h3 class="assignment-name">Engineering Mathematics</h3>
-                    <span class="instructor">Taught by Prof. Jane Smith</span>
-                </div>
-                <div class="assignment-content">
-                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
-                </div>
-            </div>
-            <div class="assignment-card" data-subject="mechanics">
-                <div class="assignment-card-header">
-                    <h3 class="assignment-name">Engineering Mechanics</h3>
-                    <span class="instructor">Taught by Prof. Emily Brown</span>
-                </div>
-                <div class="assignment-content">
-                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
-                </div>
-            </div>
-            <div class="assignment-card" data-subject="english">
-                <div class="assignment-card-header">
-                    <h3 class="assignment-name">English for Engineers</h3>
-                    <span class="instructor">Taught by Prof. Michael Lee</span>
-                </div>
-                <div class="assignment-content">
-                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                    <p class="assignment-item"><a href="#" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <div class="particles-background" id="particlesBackground"></div>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -393,6 +352,18 @@
                 document.getElementById('loginBox').style.display = 'block';
                 document.getElementById('loginBackground').style.display = 'block';
             }, 3000);
+    
+            // Sample JSON data for student profile
+            const studentData = {
+                "student": {
+                    "id": "JS2025",
+                    "firstName": "John",
+                    "lastName": "Smith",
+                    "email": "john.smith@technova.edu",
+                    "program": "B.Tech in Mechanical Engineering",
+                    "year": "2025"
+                }
+            };
     
             // Handle login
             const loginButton = document.getElementById('loginButton');
@@ -406,6 +377,8 @@
                     document.getElementById('portalContainer').style.display = 'block';
                     initializeDashboard();
                     setupNavigation();
+                    populateProfile(studentData.student);
+                    setupProfileDropdown(); // Call this after login
                 } else {
                     alert('Invalid credentials. Please try again.');
                 }
@@ -513,11 +486,10 @@
                         item.classList.add('active');
     
                         const page = item.querySelector('.menu-text').textContent.toLowerCase();
-                        // Hide all pages
                         dashboard.classList.remove('active');
                         coursesPage.classList.remove('active');
                         assignmentsPage.classList.remove('active');
-                        // Show the selected page
+    
                         if (page === 'dashboard') {
                             dashboard.classList.add('active');
                         } else if (page === 'courses') {
@@ -528,10 +500,57 @@
                     });
                 });
     
-                // Set initial state
                 dashboard.classList.add('active');
+            }
+    
+            // Populate profile with JSON data
+            function populateProfile(student) {
+                const userAvatar = document.getElementById('userAvatar');
+                const userName = document.getElementById('userName');
+                const userId = document.getElementById('userId');
+                const userEmail = document.getElementById('userEmail');
+                const userProgram = document.getElementById('userProgram');
+                const userYear = document.getElementById('userYear');
+    
+                const initials = student.firstName[0] + student.lastName[0];
+                userAvatar.textContent = initials;
+    
+                userName.textContent = `${student.firstName} ${student.lastName}`;
+                userId.textContent = student.id;
+                userEmail.textContent = student.email;
+                userProgram.textContent = student.program;
+                userYear.textContent = student.year;
+            }
+    
+            // Setup profile dropdown toggle
+            function setupProfileDropdown() {
+                const avatar = document.querySelector('.avatar');
+                const profileDropdown = document.getElementById('profileDropdown');
+    
+                if (!avatar || !profileDropdown) {
+                    console.error('Avatar or profile dropdown not found');
+                    return;
+                }
+    
+                console.log('Setting up profile dropdown'); // Debug
+    
+                avatar.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isVisible = profileDropdown.style.display === 'block';
+                    console.log('Avatar clicked, current display:', profileDropdown.style.display); // Debug
+                    profileDropdown.style.display = isVisible ? 'none' : 'block';
+                });
+    
+                document.addEventListener('click', (event) => {
+                    if (!avatar.contains(event.target) && !profileDropdown.contains(event.target)) {
+                        console.log('Clicked outside, hiding dropdown'); // Debug
+                        profileDropdown.style.display = 'none';
+                    }
+                });
             }
         });
     </script>
+    
+    </body>
 </body>
 </html>
