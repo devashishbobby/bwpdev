@@ -198,6 +198,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     
         dashboard.classList.add('active');
+
+        // Add click event for course links
+        document.querySelectorAll('.course-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                menuItems.forEach(i => i.classList.remove('active'));
+                const coursesMenuItem = Array.from(menuItems).find(item => item.querySelector('.menu-text').textContent.toLowerCase() === 'courses');
+                if (coursesMenuItem) {
+                    coursesMenuItem.classList.add('active');
+                    dashboard.classList.remove('active');
+                    coursesPage.classList.add('active');
+                    assignmentsPage.classList.remove('active');
+                    quizPage.classList.remove('active');
+                } else {
+                    console.error('Courses menu item not found');
+                }
+            });
+        });
     }
 
     // Populate profile with JSON data
