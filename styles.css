@@ -1,3 +1,4 @@
+
 :root {
     --primary: #00b7d9; /* Darker, less saturated cyan */
     --secondary: #7a2ae6; /* Darker purple */
@@ -26,7 +27,7 @@ body {
     overflow-x: hidden;
     position: relative;
     /*background-image: url('RAIT.JPG'); /* Try this absolute path */
-    background-image: url('../RAIT.JPG'); /* Relative from css folder */
+    background-image: url('../BLACK.jpg'); /* Relative from css folder */
     /* OR: background-image: url('RAIT.JPG'); /* Relative from bwpm2 if image is there */
     background-size: cover;
     background-position: center;
@@ -373,13 +374,19 @@ body::before {
 
 .dashboard,
 .courses-page,
-.assignments-page {
+.assignments-page,
+.quiz-page,
+.grades-page,
+.exam-application-page {
     display: none; /* Hide all pages by default */
 }
 
 .dashboard.active,
 .courses-page.active,
-.assignments-page.active {
+.assignments-page.active,
+.quiz-page.active,
+.grades-page.active,
+.exam-application-page.active {
     display: grid; /* Show pages when active */
 }
 
@@ -1195,21 +1202,182 @@ body::before {
     max-width: none;
 }
 
-@media (max-width: 768px) {
-    .quiz-container {
-        padding: 15px;
-        max-width: 90%; /* Ensure it fits on smaller screens */
-    }
-    .quiz-title {
-        font-size: 1.5rem;
-    }
-    .quiz-subject {
-        font-size: 1rem;
-    }
-    .go-home-btn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
+/* Grades Page Styles */
+/* Ensure all pages are hidden by default */
+.dashboard,
+.courses-page,
+.assignments-page,
+.quiz-page,
+.grades-page {
+    display: none;
+}
+
+.dashboard.active,
+.courses-page.active,
+.assignments-page.active,
+.quiz-page.active,
+.grades-page.active {
+    display: block;
+}
+
+/* Grades Page Styles */
+.grades-page {
+    padding: 20px;
+}
+
+.grades-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+    margin-bottom: 20px;
+}
+
+.grades-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
+}
+
+.grades-content p {
+    color: #ffffff; /* Explicitly set to white */
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.grades-content p strong {
+    color: #ffffff;
+}
+
+.grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+}
+
+.grades-table th,
+.grades-table td {
+    padding: 12px;
+    text-align: center;
+    color: #ffffff; /* Explicitly set to white */
+    border-bottom: 1px solid rgba(0, 183, 217, 0.1);
+}
+
+.grades-table th {
+    background: linear-gradient(135deg, rgba(0, 183, 217, 0.15), rgba(122, 42, 230, 0.15));
+    font-weight: 600;
+    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
+}
+
+.grades-table tr:hover td {
+    background: rgba(255, 255, 255, 0.05);
+    transition: background 0.3s;
+}
+
+.grades-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Exam Application Page Styles */
+.exam-application-page {
+    padding: 20px;
+}
+
+.exam-application-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+    margin-bottom: 20px;
+}
+
+.exam-application-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 183, 217, 0.1);
+}
+
+.exam-application-content {
+    background: rgba(20, 24, 36, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 183, 217, 0.1);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group input[type="text"],
+.form-group input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 183, 217, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 194, 204, 0.2);
+}
+
+.form-group div {
+    margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 183, 217, 0.3);
+}
+
+#message {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1rem;
 }
 
 /* Responsive Design */
@@ -1255,6 +1423,20 @@ body::before {
     }
     .assignments-grid {
         grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    .quiz-container {
+        padding: 15px;
+        max-width: 90%; /* Ensure it fits on smaller screens */
+    }
+    .quiz-title {
+        font-size: 1.5rem;
+    }
+    .quiz-subject {
+        font-size: 1rem;
+    }
+    .go-home-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 }
 
