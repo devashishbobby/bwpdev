@@ -180,52 +180,72 @@ document.addEventListener('DOMContentLoaded', () => {
         const coursesPage = document.querySelector('.courses-page');
         const assignmentsPage = document.querySelector('.assignments-page');
         const quizPage = document.querySelector('.quiz-page');
+        const gradesPage = document.querySelector('.grades-page');
+        const examApplicationPage = document.querySelector('.exam-application-page');
     
-        if (dashboard && coursesPage && assignmentsPage && quizPage) {
-            menuItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    menuItems.forEach(i => i.classList.remove('active'));
-                    item.classList.add('active');
-                    console.log('Clicked:', item.getAttribute('data-page'));
-    
-                    dashboard.classList.remove('active');
-                    coursesPage.classList.remove('active');
-                    assignmentsPage.classList.remove('active');
-                    quizPage.classList.remove('active');
-    
-                    const page = item.getAttribute('data-page');
-                    if (page === 'dashboard') dashboard.classList.add('active');
-                    else if (page === 'courses') coursesPage.classList.add('active');
-                    else if (page === 'assignments') assignmentsPage.classList.add('active');
-                    else if (page === 'quiz') {
-                        console.log('Attempting to redirect to quiz.php');
-                        fetch('quiz.php')
-                            .then(response => response.text())
-                            .then(html => {
-                                quizPage.innerHTML = html;
-                                quizPage.classList.add('active');
-                                console.log('Quiz content loaded dynamically');
-                            })
-                            .catch(error => {
-                                console.error('Failed to load quiz.php:', error);
-                                window.location.href = 'quiz.php'; // Fallback redirect
-                            });
-                    }
-                    console.log('Switched to:', page);
-                });
-            });
-    
-            dashboard.classList.add('active');
-            console.log('Initial navigation set to Dashboard');
-        } else {
-            console.error('Navigation pages missing:', {
+        if (!dashboard || !coursesPage || !assignmentsPage || !quizPage || !gradesPage || !examApplicationPage) {
+            console.error('Navigation pages not found:', {
                 dashboard: !!dashboard,
                 coursesPage: !!coursesPage,
                 assignmentsPage: !!assignmentsPage,
-                quizPage: !!quizPage
+                quizPage: !!quizPage,
+                gradesPage: !!gradesPage,
+                examApplicationPage: !!examApplicationPage
             });
+            return;
         }
+    
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Click detected on:', item.querySelector('.menu-text').textContent);
+    
+                menuItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+    
+                dashboard.classList.remove('active');
+                coursesPage.classList.remove('active');
+                assignmentsPage.classList.remove('active');
+                quizPage.classList.remove('active');
+                gradesPage.classList.remove('active');
+                examApplicationPage.classList.remove('active');
+    
+                const page = item.getAttribute('data-page');
+                console.log('Attempting to switch to:', page);
+                if (page === 'dashboard') {
+                    console.log('Switching to Dashboard');
+                    dashboard.classList.add('active');
+                } else if (page === 'courses') {
+                    console.log('Switching to Courses');
+                    coursesPage.classList.add('active');
+                } else if (page === 'assignments') {
+                    console.log('Switching to Assignments');
+                    assignmentsPage.classList.add('active');
+                } else if (page === 'grades') {
+                    console.log('Switching to Grades');
+                    gradesPage.classList.add('active');
+                } else if (page === 'quiz') {
+                    console.log('Attempting to load quiz content from quiz.php');
+                    fetch('quiz.php')
+                        .then(response => response.text())
+                        .then(html => {
+                            quizPage.innerHTML = html;
+                            quizPage.classList.add('active');
+                            console.log('Quiz content loaded dynamically');
+                        })
+                        .catch(error => {
+                            console.error('Failed to load quiz.php:', error);
+                            window.location.href = 'quiz.php'; // Fallback redirect
+                        });
+                } else if (page === 'exam-application') {
+                    console.log('Switching to Exam Application');
+                    examApplicationPage.classList.add('active');
+                }
+            });
+        });
+    
+        dashboard.classList.add('active');
+        console.log('Initial navigation set to Dashboard');
     }
 
     // Populate profile with JSON data
