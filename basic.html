@@ -1,449 +1,542 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TechNova Engineering University Portal</title>
-        <link rel="stylesheet" href="css/styles.css"> <!-- Relative path -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </head>
-    <body>
-        <!-- Loading Screen -->
-        <div id="loadingScreen">
-            <div class="loader-container">
-                <div class="loader-circle"></div>
-                <div class="loader-circle"></div>
-                <div class="loader-circle"></div>
-                <div class="loader-text">TechNova</div>
-            </div>
-            <div class="loader-progress">
-                <div class="loader-bar"></div>
-            </div>
-            <div class="loader-status">Initializing portal systems...</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova Engineering University Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="loader-container">
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-text">TechNova</div>
         </div>
-
-        <!-- Login Background -->
-        <div class="login-background" id="loginBackground"></div>
-
-        <!-- Login Box -->
-        <div class="login-box" id="loginBox">
-            <div class="login-heading">
-                <h1 class="login-title">TechNova Portal</h1>
-                <p class="login-subtitle">Enter your credentials to access the system</p>
-            </div>
-            <form id="loginForm">
-                <div class="input-group">
-                    <div class="input-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </div>
-                    <input type="text" class="input-field" id="username" placeholder="Student ID / Username" value="js2025">
-                </div>
-                <div class="input-group">
-                    <div class="input-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                    </div>
-                    <input type="password" class="input-field" id="password" placeholder="Password" value="password">
-                </div>
-                <button type="button" class="login-button" id="loginButton">Login</button>
-                <div class="login-options">
-                    <span class="login-option">Forgot Password?</span>
-                    <span class="login-option">Help Center</span>
-                </div>
-            </form>
+        <div class="loader-progress">
+            <div class="loader-bar"></div>
         </div>
+        <div class="loader-status">Initializing portal systems...</div>
+    </div>
 
-        <!-- Main Portal -->
-        <div class="portal-container" id="portalContainer">
-            <div class="portal-header">
-                <div class="logo">
-                    <div class="logo-icon"></div>
-                    <div class="logo-text">TechNova Engineering Portal</div>
+    <!-- Login Background -->
+    <div class="login-background" id="loginBackground"></div>
+
+    <!-- Login Box -->
+    <div class="login-box" id="loginBox">
+        <div class="login-heading">
+            <h1 class="login-title">TechNova Portal</h1>
+            <p class="login-subtitle">Enter your credentials to access the system</p>
+        </div>
+        <form id="loginForm">
+            <div class="input-group">
+                <div class="input-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                 </div>
-                <div class="user-profile">
-                    <div class="notification-badge">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                        </svg>
-                        <span class="count">3</span>
-                    </div>
-                    <div class="avatar-container">
-                        <div class="avatar" id="userAvatar">JS</div>
-                        <div class="profile-dropdown" id="profileDropdown">
-                            <div class="profile-info">
-                                <p><strong>Name:</strong> <span id="userName"></span></p>
-                                <p><strong>ID:</strong> <span id="userId"></span></p>
-                                <p><strong>Email:</strong> <span id="userEmail"></span></p>
-                                <p><strong>Program:</strong> <span id="userProgram"></span></p>
-                                <p><strong>Year:</strong> <span id="userYear"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <input type="text" class="input-field" id="username" placeholder="Student ID / Username" value="js2025">
             </div>
-
-            <div class="main-content">
-                <div class="sidebar">
-                    <div class="menu-item active">
-                        <span class="menu-icon">📊</span><span class="menu-text">Dashboard</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-icon">📚</span><span class="menu-text">Courses</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-icon">📝</span><span class="menu-text">Assignments</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-icon">🎓</span><span class="menu-text">Grades</span>
-                    </div>
-                    <div class="menu-item" data-page="quiz">
-                        <span class="menu-icon">❓</span><span class="menu-text">Quiz</span>
-                    </div>
+            <div class="input-group">
+                <div class="input-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
                 </div>
+                <input type="password" class="input-field" id="password" placeholder="Password" value="password">
+            </div>
+            <button type="button" class="login-button" id="loginButton">Login</button>
+            <div class="login-options">
+                <span class="login-option">Forgot Password?</span>
+                <span class="login-option">Help Center</span>
+            </div>
+        </form>
+    </div>
 
-                <div class="dashboard">
-                    <!-- Attendance Summary -->
-                    <div class="dashboard-card attendance-summary-card">
-                        <div class="card-header">
-                            <div class="card-title">Attendance Summary</div>
-                            <div class="card-action">Details</div>
-                        </div>
-                        <div class="card-content attendance-summary-content">
-                            <div class="attendance-chart-container">
-                                <canvas id="attendanceChart" height="150"></canvas>
-                            </div>
-                            <div class="attendance-subject-list">
-                                <div class="attendance-subject">
-                                    <div class="subject-name">Engineering Physics</div>
-                                    <div class="attendance-progress-container">
-                                        <div class="attendance-progress" data-percentage="78"></div>
-                                        <span class="attendance-percentage">78%</span>
-                                    </div>
-                                </div>
-                                <div class="attendance-subject">
-                                    <div class="subject-name">Engineering Mathematics</div>
-                                    <div class="attendance-progress-container">
-                                        <div class="attendance-progress" data-percentage="92"></div>
-                                        <span class="attendance-percentage">92%</span>
-                                    </div>
-                                </div>
-                                <div class="attendance-subject">
-                                    <div class="subject-name">Engineering Mechanics</div>
-                                    <div class="attendance-progress-container">
-                                        <div class="attendance-progress" data-percentage="85"></div>
-                                        <span class="attendance-percentage">85%</span>
-                                    </div>
-                                </div>
-                                <div class="attendance-subject">
-                                    <div class="subject-name">English For Engineers</div>
-                                    <div class="attendance-progress-container">
-                                        <div class="attendance-progress" data-percentage="88"></div>
-                                        <span class="attendance-percentage">88%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Notice Board -->
-                    <div class="dashboard-card notice-board-card">
-                        <div class="card-header">
-                            <div class="card-title">Notice Board</div>
-                        </div>
-                        <div class="card-content">
-                            <div class="notice-list"></div>
-                        </div>
-                    </div>
-
-                    <!-- Course Quick Links -->
-                    <div class="dashboard-card course-links-card">
-                        <div class="card-header">
-                            <div class="card-title">Quick Access</div>
-                        </div>
-                        <div class="card-content">
-                            <div class="course-link-grid">
-                                <div class="course-link-item" data-course="physics">
-                                    <div class="course-link-content">
-                                        <h3>Engineering Physics</h3>
-                                        <div class="course-progress">
-                                            <div class="progress-bar"></div>
-                                            <span class="progress-text">78% Complete</span>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="course-link" data-target="courses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
-                                </div>
-                                <div class="course-link-item" data-course="mathematics">
-                                    <div class="course-link-content">
-                                        <h3>Engineering Mathematics</h3>
-                                        <div class="course-progress">
-                                            <div class="progress-bar"></div>
-                                            <span class="progress-text">92% Complete</span>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="course-link" data-target="courses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
-                                </div>
-                                <div class="course-link-item" data-course="mechanics">
-                                    <div class="course-link-content">
-                                        <h3>Engineering Mechanics</h3>
-                                        <div class="course-progress">
-                                            <div class="progress-bar"></div>
-                                            <span class="progress-text">85% Complete</span>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="course-link" data-target="courses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
-                                </div>
-                                <div class="course-link-item" data-course="english">
-                                    <div class="course-link-content">
-                                        <h3>English For Engineers</h3>
-                                        <div class="course-progress">
-                                            <div class="progress-bar"></div>
-                                            <span class="progress-text">88% Complete</span>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="course-link" data-target="courses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Main Portal -->
+    <div class="portal-container" id="portalContainer">
+        <div class="portal-header">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">TechNova Engineering Portal</div>
+            </div>
+            <div class="user-profile">
+                <div class="notification-badge">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span class="count">3</span>
                 </div>
-
-                <div class="courses-page">
-                    <div class="courses-header">
-                        <h2 class="courses-title">Your Courses</h2>
-                        <div class="courses-action">Semester: Spring 2025</div>
-                    </div>
-                    <div class="courses-grid">
-                        <!-- Course 1: Engineering Physics -->
-                        <div class="course-card">
-                            <div class="course-card-header">
-                                <h3 class="course-name">Engineering Physics</h3>
-                                <span class="course-code">PHY-101</span>
-                            </div>
-                            <div class="course-card-content">
-                                <p><strong>Instructor:</strong> Dr. Sarah Johnson</p>
-                                <p><strong>Schedule:</strong> Mon, Wed, Fri - 9:00 AM - 10:00 AM</p>
-                                <p><strong>Location:</strong> Physics Lab 301</p>
-                                <p><strong>Description:</strong> Fundamentals of classical and modern physics with engineering applications.</p>
-                                <div class="course-progress-bar">
-                                    <div class="progress-fill" style="width: 78%;"></div>
-                                    <span class="progress-text">78% Complete</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/1Nx6TunovD3sInL_yfh8hCyW1fu7z8lyV/view" target="_blank" class="course-action-btn">View Resources</a>
-                            </div>
-                        </div>
-                       
-                        <!-- Course 2: Engineering Mathematics -->
-                        <div class="course-card">
-                            <div class="course-card-header">
-                                <h3 class="course-name">Engineering Mathematics</h3>
-                                <span class="course-code">MATH-102</span>
-                            </div>
-                            <div class="course-card-content">
-                                <p><strong>Instructor:</strong> Prof. Michael Chen</p>
-                                <p><strong>Schedule:</strong> Tue, Thu - 10:00 AM - 11:30 AM</p>
-                                <p><strong>Location:</strong> Math Hall 205</p>
-                                <p><strong>Description:</strong> Advanced calculus and linear algebra for engineering problem-solving.</p>
-                                <div class="course-progress-bar">
-                                    <div class="progress-fill" style="width: 92%;"></div>
-                                    <span class="progress-text">92% Complete</span>
-                                </div>
-                                <a href="https://drive.google.com/drive/folders/1OaKsOGy4espUeymo6Lirt0klkV320nlB" target="_blank" class="course-action-btn">View Resources</a>
-                            </div>
-                        </div>
-                       
-                        <!-- Course 3: Engineering Mechanics -->
-                        <div class="course-card">
-                            <div class="course-card-header">
-                                <h3 class="course-name">Engineering Mechanics</h3>
-                                <span class="course-code">MECH-103</span>
-                            </div>
-                            <div class="course-card-content">
-                                <p><strong>Instructor:</strong> Dr. Emily Rodriguez</p>
-                                <p><strong>Schedule:</strong> Mon, Wed - 11:00 AM - 12:30 PM</p>
-                                <p><strong>Location:</strong> Mech Lab 102</p>
-                                <p><strong>Description:</strong> Statics and dynamics of rigid bodies and systems.</p>
-                                <div class="course-progress-bar">
-                                    <div class="progress-fill" style="width: 85%;"></div>
-                                    <span class="progress-text">85% Complete</span>
-                                </div>
-                                <a href="https://drive.google.com/file/d/0B62OigwAQAtdeS0tV2xOdWxZbzA/edit?resourcekey=0-w9Nasce7z5NecV_DLb6l4A" target="_blank" class="course-action-btn">View Resources</a>
-                            </div>
-                        </div>
-                       
-                        <!-- Course 4: English For Engineers -->
-                        <div class="course-card">
-                            <div class="course-card-header">
-                                <h3 class="course-name">English For Engineers</h3>
-                                <span class="course-code">ENG-104</span>
-                            </div>
-                            <div class="course-card-content">
-                                <p><strong>Instructor:</strong> Ms. Laura Patel</p>
-                                <p><strong>Schedule:</strong> Tue, Fri - 1:00 PM - 2:00 PM</p>
-                                <p><strong>Location:</strong> Humanities 401</p>
-                                <p><strong>Description:</strong> Technical writing and communication skills for engineers.</p>
-                                <div class="course-progress-bar">
-                                    <div class="progress-fill" style="width: 88%;"></div>
-                                    <span class="progress-text">88% Complete</span>
-                                </div>
-                                <a href="https://drive.google.com/drive/folders/0B2Q8XuO2ebzxMEYzb0RYV1NBZVU?resourcekey=0-BWzZkxRhza1OYEyUK_tXEg" target="_blank" class="course-action-btn">View Resources</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="assignments-page">
-                    <div class="assignments-header">
-                        <h2 class="assignments-title">Assignments</h2>
-                    </div>
-                    <div class="assignments-grid">
-                        <div class="assignment-card" data-subject="physics">
-                            <div class="assignment-card-header">
-                                <h3 class="assignment-name">Engineering Physics</h3>
-                                <span class="instructor">Taught by Prof. John Doe</span>
-                            </div>
-                            <div class="assignment-content">
-                                <p class="assignment-item"><a href="pdfs/p1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                                <p class="assignment-item"><a href="pdfs/p2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
-                                <p class="assignment-item"><a href="pdfs/p3.pdf" class="assignment-link">Assignment 3.pdf</a> (Pending)</p>
-                            </div>
-                        </div>
-                        <div class="assignment-card" data-subject="mathematics">
-                            <div class="assignment-card-header">
-                                <h3 class="assignment-name">Engineering Mathematics</h3>
-                                <span class="instructor">Taught by Prof. Jane Smith</span>
-                            </div>
-                            <div class="assignment-content">
-                                <p class="assignment-item"><a href="pdfs/m1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                                <p class="assignment-item"><a href="pdfs/m2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
-                            </div>
-                        </div>
-                        <div class="assignment-card" data-subject="mechanics">
-                            <div class="assignment-card-header">
-                                <h3 class="assignment-name">Engineering Mechanics</h3>
-                                <span class="instructor">Taught by Prof. Emily Brown</span>
-                            </div>
-                            <div class="assignment-content">
-                                <p class="assignment-item"><a href="pdfs/em1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                            </div>
-                        </div>
-                        <div class="assignment-card" data-subject="english">
-                            <div class="assignment-card-header">
-                                <h3 class="assignment-name">English for Engineers</h3>
-                                <span class="instructor">Taught by Prof. Michael Lee</span>
-                            </div>
-                            <div class="assignment-content">
-                                <p class="assignment-item"><a href="pdfs/e1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
-                                <p class="assignment-item"><a href="pdfs/e2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
-                                <p class="assignment-item"><a href="pdfs/e3.pdf" class="assignment-link">Assignment 3.pdf</a> (Pending)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quiz Page -->
-                <div class="quiz-page">
-                    <div class="quiz-container">
-                        <h2 class="quiz-title">Quiz Section</h2>
-                        <div class="quiz-subject">Subject Name: English for Engineers</div>
-                        <div class="quiz-action">
-                            <a href="quiz.php" class="course-action-btn">Start English for Engineers</a>
+                <div class="avatar-container">
+                    <div class="avatar" id="userAvatar">JS</div>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="profile-info">
+                            <p><strong>Name:</strong> <span id="userName"></span></p>
+                            <p><strong>ID:</strong> <span id="userId"></span></p>
+                            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                            <p><strong>Program:</strong> <span id="userProgram"></span></p>
+                            <p><strong>Year:</strong> <span id="userYear"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="particles-background" id="particlesBackground"></div>
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="menu-item active" data-page="dashboard">
+                    <span class="menu-icon">📊</span><span class="menu-text">Dashboard</span>
+                </div>
+                <div class="menu-item" data-page="courses">
+                    <span class="menu-icon">📚</span><span class="menu-text">Courses</span>
+                </div>
+                <div class="menu-item" data-page="assignments">
+                    <span class="menu-icon">📝</span><span class="menu-text">Assignments</span>
+                </div>
+                <div class="menu-item" data-page="grades">
+                    <span class="menu-icon">🎓</span><span class="menu-text">Grades</span>
+                </div>
+                <div class="menu-item" data-page="quiz">
+                    <span class="menu-icon">❓</span><span class="menu-text">Quiz</span>
+                </div>
+                <div class="menu-item" data-page="exam-application">
+                    <span class="menu-icon">📋</span><span class="menu-text">Exam Application</span>
+                </div>
+            </div>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                // Simulate loading screen
-                setTimeout(() => {
-                    document.getElementById('loadingScreen').style.display = 'none';
-                    document.getElementById('loginBox').style.display = 'block';
-                    document.getElementById('loginBackground').style.display = 'block';
-                }, 3000);
-        
-                // Sample JSON data for student profile
-                const studentData = {
-                    "student": {
-                        "id": "JS2025",
-                        "firstName": "John",
-                        "lastName": "Smith",
-                        "email": "john.smith@technova.edu",
-                        "program": "B.Tech in Mechanical Engineering",
-                        "year": "2025"
-                    }
-                };
-        
-                // Sample quiz data (replace with fetch from quiz.php later if needed)
-                const quizData = [
-                    { id: 1, subject: "English for Engineers", link: "quiz.php?subject=english" },
-                ];
-        
-                // Handle login
-                const loginButton = document.getElementById('loginButton');
-                loginButton.addEventListener('click', () => {
-                    const username = document.getElementById('username').value;
-                    const password = document.getElementById('password').value;
-        
-                    if (username === 'js2025' && password === 'password') {
-                        document.getElementById('loginBox').style.display = 'none';
-                        document.getElementById('loginBackground').style.display = 'none';
-                        document.getElementById('portalContainer').style.display = 'block';
-                        initializeDashboard();
-                        setupNavigation();
-                        populateProfile(studentData.student);
-                        setupProfileDropdown();
-                    } else {
-                        alert('Invalid credentials. Please try again.');
-                    }
-                });
-        
-                // Initialize dashboard after login
-                function initializeDashboard() {
-                    renderAttendanceChart();
-                    setAttendanceProgressBars();
-                    populateNoticeBoard();
+            <div class="dashboard">
+                <!-- Attendance Summary -->
+                <div class="dashboard-card attendance-summary-card">
+                    <div class="card-header">
+                        <div class="card-title">Attendance Summary</div>
+                        <div class="card-action">Details</div>
+                    </div>
+                    <div class="card-content attendance-summary-content">
+                        <div class="attendance-chart-container">
+                            <canvas id="attendanceChart" height="150"></canvas>
+                        </div>
+                        <div class="attendance-subject-list">
+                            <div class="attendance-subject">
+                                <div class="subject-name">Engineering Physics</div>
+                                <div class="attendance-progress-container">
+                                    <div class="attendance-progress" data-percentage="78"></div>
+                                    <span class="attendance-percentage">78%</span>
+                                </div>
+                            </div>
+                            <div class="attendance-subject">
+                                <div class="subject-name">Engineering Mathematics</div>
+                                <div class="attendance-progress-container">
+                                    <div class="attendance-progress" data-percentage="92"></div>
+                                    <span class="attendance-percentage">92%</span>
+                                </div>
+                            </div>
+                            <div class="attendance-subject">
+                                <div class="subject-name">Engineering Mechanics</div>
+                                <div class="attendance-progress-container">
+                                    <div class="attendance-progress" data-percentage="85"></div>
+                                    <span class="attendance-percentage">85%</span>
+                                </div>
+                            </div>
+                            <div class="attendance-subject">
+                                <div class="subject-name">English For Engineers</div>
+                                <div class="attendance-progress-container">
+                                    <div class="attendance-progress" data-percentage="88"></div>
+                                    <span class="attendance-percentage">88%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notice Board -->
+                <div class="dashboard-card notice-board-card">
+                    <div class="card-header">
+                        <div class="card-title">Notice Board</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="notice-list"></div>
+                    </div>
+                </div>
+
+                <!-- Course Quick Links -->
+                <div class="dashboard-card course-links-card">
+                    <div class="card-header">
+                        <div class="card-title">Quick Access</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="course-link-grid">
+                            <div class="course-link-item" data-course="physics">
+                                <div class="course-link-content">
+                                    <h3>Engineering Physics</h3>
+                                    <div class="course-progress">
+                                        <div class="progress-bar"></div>
+                                        <span class="progress-text">78% Complete</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="course-link" data-target="courses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
+                            </div>
+                            <div class="course-link-item" data-course="mathematics">
+                                <div class="course-link-content">
+                                    <h3>Engineering Mathematics</h3>
+                                    <div class="course-progress">
+                                        <div class="progress-bar"></div>
+                                        <span class="progress-text">92% Complete</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="course-link" data-target="courses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
+                            </div>
+                            <div class="course-link-item" data-course="mechanics">
+                                <div class="course-link-content">
+                                    <h3>Engineering Mechanics</h3>
+                                    <div class="course-progress">
+                                        <div class="progress-bar"></div>
+                                        <span class="progress-text">85% Complete</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="course-link" data-target="courses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
+                            </div>
+                            <div class="course-link-item" data-course="english">
+                                <div class="course-link-content">
+                                    <h3>English For Engineers</h3>
+                                    <div class="course-progress">
+                                        <div class="progress-bar"></div>
+                                        <span class="progress-text">88% Complete</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="course-link" data-target="courses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="courses-page">
+                <div class="courses-header">
+                    <h2 class="courses-title">Your Courses</h2>
+                    <div class="courses-action">Semester: Spring 2025</div>
+                </div>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-card-header">
+                            <h3 class="course-name">Engineering Physics</h3>
+                            <span class="course-code">PHY-101</span>
+                        </div>
+                        <div class="course-card-content">
+                            <p><strong>Instructor:</strong> Dr. Sarah Johnson</p>
+                            <p><strong>Schedule:</strong> Mon, Wed, Fri - 9:00 AM - 10:00 AM</p>
+                            <p><strong>Location:</strong> Physics Lab 301</p>
+                            <p><strong>Description:</strong> Fundamentals of classical and modern physics with engineering applications.</p>
+                            <div class="course-progress-bar">
+                                <div class="progress-fill" style="width: 78%;"></div>
+                                <span class="progress-text">78% Complete</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1Nx6TunovD3sInL_yfh8hCyW1fu7z8lyV/view" target="_blank" class="course-action-btn">View Resources</a>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-card-header">
+                            <h3 class="course-name">Engineering Mathematics</h3>
+                            <span class="course-code">MATH-102</span>
+                        </div>
+                        <div class="course-card-content">
+                            <p><strong>Instructor:</strong> Prof. Michael Chen</p>
+                            <p><strong>Schedule:</strong> Tue, Thu - 10:00 AM - 11:30 AM</p>
+                            <p><strong>Location:</strong> Math Hall 205</p>
+                            <p><strong>Description:</strong> Advanced calculus and linear algebra for engineering problem-solving.</p>
+                            <div class="course-progress-bar">
+                                <div class="progress-fill" style="width: 92%;"></div>
+                                <span class="progress-text">92% Complete</span>
+                            </div>
+                            <a href="https://drive.google.com/drive/folders/1OaKsOGy4espUeymo6Lirt0klkV320nlB" target="_blank" class="course-action-btn">View Resources</a>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-card-header">
+                            <h3 class="course-name">Engineering Mechanics</h3>
+                            <span class="course-code">MECH-103</span>
+                        </div>
+                        <div class="course-card-content">
+                            <p><strong>Instructor:</strong> Dr. Emily Rodriguez</p>
+                            <p><strong>Schedule:</strong> Mon, Wed - 11:00 AM - 12:30 PM</p>
+                            <p><strong>Location:</strong> Mech Lab 102</p>
+                            <p><strong>Description:</strong> Statics and dynamics of rigid bodies and systems.</p>
+                            <div class="course-progress-bar">
+                                <div class="progress-fill" style="width: 85%;"></div>
+                                <span class="progress-text">85% Complete</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/0B62OigwAQAtdeS0tV2xOdWxZbzA/edit?resourcekey=0-w9Nasce7z5NecV_DLb6l4A" target="_blank" class="course-action-btn">View Resources</a>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-card-header">
+                            <h3 class="course-name">English For Engineers</h3>
+                            <span class="course-code">ENG-104</span>
+                        </div>
+                        <div class="course-card-content">
+                            <p><strong>Instructor:</strong> Ms. Laura Patel</p>
+                            <p><strong>Schedule:</strong> Tue, Fri - 1:00 PM - 2:00 PM</p>
+                            <p><strong>Location:</strong> Humanities 401</p>
+                            <p><strong>Description:</strong> Technical writing and communication skills for engineers.</p>
+                            <div class="course-progress-bar">
+                                <div class="progress-fill" style="width: 88%;"></div>
+                                <span class="progress-text">88% Complete</span>
+                            </div>
+                            <a href="https://drive.google.com/drive/folders/0B2Q8XuO2ebzxMEYzb0RYV1NBZVU?resourcekey=0-BWzZkxRhza1OYEyUK_tXEg" target="_blank" class="course-action-btn">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="assignments-page">
+                <div class="assignments-header">
+                    <h2 class="assignments-title">Assignments</h2>
+                </div>
+                <div class="assignments-grid">
+                    <div class="assignment-card" data-subject="physics">
+                        <div class="assignment-card-header">
+                            <h3 class="assignment-name">Engineering Physics</h3>
+                            <span class="instructor">Taught by Prof. John Doe</span>
+                        </div>
+                        <div class="assignment-content">
+                            <p class="assignment-item"><a href="pdfs/p1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/p2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/p3.pdf" class="assignment-link">Assignment 3.pdf</a> (Pending)</p>
+                        </div>
+                    </div>
+                    <div class="assignment-card" data-subject="mathematics">
+                        <div class="assignment-card-header">
+                            <h3 class="assignment-name">Engineering Mathematics</h3>
+                            <span class="instructor">Taught by Prof. Jane Smith</span>
+                        </div>
+                        <div class="assignment-content">
+                            <p class="assignment-item"><a href="pdfs/m1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/m2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                        </div>
+                    </div>
+                    <div class="assignment-card" data-subject="mechanics">
+                        <div class="assignment-card-header">
+                            <h3 class="assignment-name">Engineering Mechanics</h3>
+                            <span class="instructor">Taught by Prof. Emily Brown</span>
+                        </div>
+                        <div class="assignment-content">
+                            <p class="assignment-item"><a href="pdfs/em1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                        </div>
+                    </div>
+                    <div class="assignment-card" data-subject="english">
+                        <div class="assignment-card-header">
+                            <h3 class="assignment-name">English for Engineers</h3>
+                            <span class="instructor">Taught by Prof. Michael Lee</span>
+                        </div>
+                        <div class="assignment-content">
+                            <p class="assignment-item"><a href="pdfs/e1.pdf" class="assignment-link">Assignment 1.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/e2.pdf" class="assignment-link">Assignment 2.pdf</a> (Pending)</p>
+                            <p class="assignment-item"><a href="pdfs/e3.pdf" class="assignment-link">Assignment 3.pdf</a> (Pending)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-page">
+                <div class="quiz-container">
+                    <h2 class="quiz-title">Quiz Section</h2>
+                    <div class="quiz-subject">Subject Name: English for Engineers</div>
+                    <div class="quiz-action">
+                        <a href="quiz.php" class="course-action-btn">Start English for Engineers</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grades-page">
+                <div class="grades-header">
+                    <h2 class="grades-title">Grades</h2>
+                </div>
+                <div class="grades-content">
+                    <p><strong>Name of the student:</strong> John Smith (JS2025)</p>
+                    <table class="grades-table">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>CA-1 (20)</th>
+                                <th>CA-2 (20)</th>
+                                <th>CA-3 (20)</th>
+                                <th>Internals (40)</th>
+                                <th>Total (100)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Engineering Physics</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Engineering Mathematics</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Engineering Mechanics</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>English For Engineers</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="exam-application-page">
+                <div class="exam-application-header">
+                    <h2 class="exam-application-title">Exam Application</h2>
+                </div>
+                <div class="exam-application-content">
+                    <form id="examApplicationForm" action="examapp.php" method="POST">
+                        <div class="form-group">
+                            <label for="student-id">Student ID</label>
+                            <input type="text" id="student-id" name="student_id" value="JS2025" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="full_name" value="John Smith" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="john.smith@technova.edu" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="exam-type">Exam Type</label>
+                            <select id="exam-type" name="exam_type" required>
+                                <option value="" disabled selected>Select Exam Type</option>
+                                <option value="Midterm">Midterm</option>
+                                <option value="Final">Final</option>
+                                <option value="Supplementary">Supplementary</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exam-date">Exam Date</label>
+                            <input type="date" id="exam-date" name="exam_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exam-center">Exam Center</label>
+                            <select id="exam-center" name="exam_center" required>
+                                <option value="" disabled selected>Select Exam Center</option>
+                                <option value="Main Campus">Main Campus</option>
+                                <option value="Downtown Campus">Downtown Campus</option>
+                            </select>
+                        </div>
+                        <button type="submit">Submit Application</button>
+                    </form>
+                    <div id="message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="particles-background" id="particlesBackground"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simulate loading screen
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+                document.getElementById('loginBox').style.display = 'block';
+                document.getElementById('loginBackground').style.display = 'block';
+            }, 3000);
+
+            // Sample JSON data for student profile
+            const studentData = {
+                "student": {
+                    "id": "JS2025",
+                    "firstName": "John",
+                    "lastName": "Smith",
+                    "email": "john.smith@technova.edu",
+                    "program": "B.Tech in Mechanical Engineering",
+                    "year": "2025"
                 }
-        
-                // Render the circular attendance chart using Chart.js
-                // Render the circular attendance chart using Chart.js
-                function renderAttendanceChart() {
-                    const ctx = document.getElementById('attendanceChart').getContext('2d');
-                    const percentages = document.querySelectorAll('.attendance-progress');
-                    const total = Array.from(percentages).reduce((sum, bar) => sum + parseInt(bar.getAttribute('data-percentage') || 0), 0);
-                    const overallAttendance = Math.round(total / percentages.length);
+            };
 
-                    new Chart(ctx, {
-                        type: 'doughnut',
-                        data: {
+            // Sample quiz data
+            const quizData = [
+                { id: 1, subject: "English for Engineers", link: "quiz.php?subject=english" },
+            ];
+
+            // Handle login
+            const loginButton = document.getElementById('loginButton');
+            loginButton.addEventListener('click', () => {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                if (username === 'js2025' && password === 'password') {
+                    document.getElementById('loginBox').style.display = 'none';
+                    document.getElementById('loginBackground').style.display = 'none';
+                    document.getElementById('portalContainer').style.display = 'block';
+                    initializeDashboard();
+                    setupNavigation();
+                    populateProfile(studentData.student);
+                    setupProfileDropdown();
+                } else {
+                    alert('Invalid credentials. Please try again.');
+                }
+            });
+
+            // Initialize dashboard after login
+            function initializeDashboard() {
+                renderAttendanceChart();
+                setAttendanceProgressBars();
+                populateNoticeBoard();
+            }
+
+            // Render the circular attendance chart using Chart.js
+            function renderAttendanceChart() {
+                const ctx = document.getElementById('attendanceChart').getContext('2d');
+                const percentages = document.querySelectorAll('.attendance-progress');
+                const total = Array.from(percentages).reduce((sum, bar) => sum + parseInt(bar.getAttribute('data-percentage') || 0), 0);
+                const overallAttendance = Math.round(total / percentages.length);
+
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
                         datasets: [{
                             data: [overallAttendance, 100 - overallAttendance],
                             backgroundColor: ['#02d8ff', 'rgba(255, 255, 255, 0.1)'],
                             borderWidth: 0,
                             circumference: 360,
                             cutout: '80%',
-                         }]
-                        },
+                        }]
+                    },
                     options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                    legend: { display: false },
-                    tooltip: { enabled: false }
-                    }
-                },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { enabled: false }
+                        }
+                    },
                     plugins: [{
-                    id: 'textCenter',
+                        id: 'textCenter',
                         beforeDraw: function(chart) {
                             const width = chart.width;
                             const height = chart.height;
@@ -451,389 +544,357 @@
                             ctx.save();
                             ctx.textAlign = 'center';
                             ctx.textBaseline = 'middle';
-                            const fontSize = Math.min(height / 10, 60); // Increased max font size to 60px, adjusted scaling factor from /15 to /10
+                            const fontSize = Math.min(height / 10, 60);
                             ctx.font = `${fontSize}px sans-serif`;
                             const text = `${overallAttendance}%`;
                             ctx.fillStyle = '#ffffff';
                             ctx.fillText(text, width / 2, height / 2);
                             ctx.restore();
                         }
-                     }]
+                    }]
                 });
             }
-        
-                // Set the width of attendance progress bars
-                function setAttendanceProgressBars() {
-                    const progressBars = document.querySelectorAll('.attendance-progress');
-                    progressBars.forEach(bar => {
-                        const percentage = bar.getAttribute('data-percentage');
-                        bar.style.width = `${percentage}%`;
-                    });
+
+            // Set the width of attendance progress bars
+            function setAttendanceProgressBars() {
+                const progressBars = document.querySelectorAll('.attendance-progress');
+                progressBars.forEach(bar => {
+                    const percentage = bar.getAttribute('data-percentage');
+                    bar.style.width = `${percentage}%`;
+                });
+            }
+
+            // Populate the notice board with sample notices
+            function populateNoticeBoard() {
+                const noticeList = document.querySelector('.notice-list');
+                const notices = [
+                    { title: 'Physics Exam', content: 'Exam scheduled for next week.', progress: 60 },
+                    { title: 'Math Assignment', content: 'Submit by Friday.', progress: 80 },
+                    { title: 'Mechanics Project', content: 'Group project due in 2 weeks.', progress: 45 },
+                    { title: 'English Presentation', content: 'Prepare for next class.', progress: 70 }
+                ];
+
+                notices.forEach(notice => {
+                    const noticeItem = document.createElement('div');
+                    noticeItem.classList.add('notice-item');
+                    noticeItem.innerHTML = `
+                        <div class="notice-content">
+                            <h4>${notice.title}</h4>
+                            <p>${notice.content}</p>
+                        </div>
+                        <div class="notice-progress-container">
+                            <div class="notice-progress" style="width: ${notice.progress}%"></div>
+                            <span class="notice-percentage">${notice.progress}%</span>
+                        </div>
+                    `;
+                    noticeList.appendChild(noticeItem);
+                });
+            }
+
+            // Setup navigation
+            function setupNavigation() {
+                const menuItems = document.querySelectorAll('.menu-item');
+                const pages = {
+                    dashboard: document.querySelector('.dashboard'),
+                    courses: document.querySelector('.courses-page'),
+                    assignments: document.querySelector('.assignments-page'),
+                    grades: document.querySelector('.grades-page'),
+                    quiz: document.querySelector('.quiz-page'),
+                    'exam-application': document.querySelector('.exam-application-page')
+                };
+
+                if (Object.values(pages).some(page => !page)) {
+                    console.error('Navigation pages not found:', pages);
+                    return;
                 }
-        
-                // Populate the notice board with sample notices
-                function populateNoticeBoard() {
-                    const noticeList = document.querySelector('.notice-list');
-                    const notices = [
-                        { title: 'Physics Exam', content: 'Exam scheduled for next week.', progress: 60 },
-                        { title: 'Math Assignment', content: 'Submit by Friday.', progress: 80 },
-                        { title: 'Mechanics Project', content: 'Group project due in 2 weeks.', progress: 45 },
-                        { title: 'English Presentation', content: 'Prepare for next class.', progress: 70 }
-                    ];
-        
-                    notices.forEach(notice => {
-                        const noticeItem = document.createElement('div');
-                        noticeItem.classList.add('notice-item');
-                        noticeItem.innerHTML = `
-                            <div class="notice-content">
-                                <h4>${notice.title}</h4>
-                                <p>${notice.content}</p>
-                            </div>
-                            <div class="notice-progress-container">
-                                <div class="notice-progress" style="width: ${notice.progress}%"></div>
-                                <span class="notice-percentage">${notice.progress}%</span>
-                            </div>
-                        `;
-                        noticeList.appendChild(noticeItem);
+
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        console.log('Click detected on:', item.querySelector('.menu-text').textContent);
+                        menuItems.forEach(i => i.classList.remove('active'));
+                        item.classList.add('active');
+
+                        Object.values(pages).forEach(page => page.classList.remove('active'));
+
+                        const page = item.getAttribute('data-page');
+                        if (pages[page]) {
+                            console.log(`Switching to ${page.charAt(0).toUpperCase() + page.slice(1)}`);
+                            pages[page].classList.add('active');
+                            if (page === 'quiz') renderQuizOptions();
+                        }
                     });
-                }
-        
-                // Setup navigation
-                function setupNavigation() {
-                    const menuItems = document.querySelectorAll('.menu-item');
-                    const dashboard = document.querySelector('.dashboard');
-                    const coursesPage = document.querySelector('.courses-page');
-                    const assignmentsPage = document.querySelector('.assignments-page');
-                    const quizPage = document.querySelector('.quiz-page');
-        
-                    if (!dashboard || !coursesPage || !assignmentsPage || !quizPage) {
-                        console.error('Navigation pages not found:', { dashboard, coursesPage, assignmentsPage, quizPage });
-                        return;
-                    }
-        
-                    menuItems.forEach(item => {
-                        item.addEventListener('click', () => {
-                            console.log('Click detected on:', item.querySelector('.menu-text').textContent);
-                            menuItems.forEach(i => i.classList.remove('active'));
-                            item.classList.add('active');
-        
-                            const page = item.querySelector('.menu-text').textContent.toLowerCase();
-                            dashboard.classList.remove('active');
-                            coursesPage.classList.remove('active');
-                            assignmentsPage.classList.remove('active');
-                            quizPage.classList.remove('active');
-        
-                            if (page === 'dashboard') {
-                                console.log('Switching to Dashboard');
-                                dashboard.classList.add('active');
-                            } else if (page === 'courses') {
-                                console.log('Switching to Courses');
-                                coursesPage.classList.add('active');
-                            } else if (page === 'assignments') {
-                                console.log('Switching to Assignments');
-                                assignmentsPage.classList.add('active');
-                            } else if (page === 'quiz') {
-                                console.log('Showing available quizzes');
-                                quizPage.classList.add('active');
-                                renderQuizOptions();
+                });
+
+                pages.dashboard.classList.add('active');
+                console.log('Initial navigation set to Dashboard');
+
+                // Course link navigation logic
+                const courseLinks = document.querySelectorAll('.course-link');
+                console.log('Found course links:', courseLinks.length);
+                if (courseLinks.length > 0) {
+                    courseLinks.forEach(link => {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            console.log('Course link clicked');
+                            const coursesMenuItem = Array.from(menuItems).find(item => 
+                                item.getAttribute('data-page') === 'courses'
+                            );
+                            if (coursesMenuItem) {
+                                console.log('Activating Courses');
+                                menuItems.forEach(i => i.classList.remove('active'));
+                                coursesMenuItem.classList.add('active');
+                                Object.values(pages).forEach(page => page.classList.remove('active'));
+                                pages.courses.classList.add('active');
+                            } else {
+                                console.error('Courses menu item not found');
                             }
                         });
                     });
-        
-                    dashboard.classList.add('active');
-                    console.log('Initial navigation set to Dashboard');
-        
-                    // Course link navigation logic
-                    const courseLinks = document.querySelectorAll('.course-link');
-                    console.log('Found course links:', courseLinks.length);
-                    if (courseLinks.length > 0) {
-                        courseLinks.forEach(link => {
-                            link.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                console.log('Course link clicked');
-                                const coursesMenuItem = Array.from(menuItems).find(item => 
-                                    item.querySelector('.menu-text').textContent.toLowerCase() === 'courses'
-                                );
-                                if (coursesMenuItem) {
-                                    console.log('Activating Courses');
-                                    menuItems.forEach(i => i.classList.remove('active'));
-                                    coursesMenuItem.classList.add('active');
-                                    dashboard.classList.remove('active');
-                                    coursesPage.classList.add('active');
-                                    assignmentsPage.classList.remove('active');
-                                    quizPage.classList.remove('active');
-                                } else {
-                                    console.error('Courses menu item not found');
-                                }
-                            });
-                        });
-                    } else {
-                        console.error('No course links found in the DOM');
-                    }
+                } else {
+                    console.error('No course links found in the DOM');
                 }
-        
-                // Render available quiz options
-                function renderQuizOptions() {
-                    const quizContainer = document.querySelector('.quiz-container');
-                    quizContainer.innerHTML = `
-                        <h2 class="quiz-title">Available Quizzes</h2>
-                        <div class="quiz-list">
-                            ${quizData.map(quiz => `
-                                <div class="quiz-item">
-                                    <a href="${quiz.link}" class="course-action-btn">${quiz.subject} Quiz</a>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                }
-        
-                // Populate profile with JSON data
-                function populateProfile(student) {
-                    const userAvatar = document.getElementById('userAvatar');
-                    const userName = document.getElementById('userName');
-                    const userId = document.getElementById('userId');
-                    const userEmail = document.getElementById('userEmail');
-                    const userProgram = document.getElementById('userProgram');
-                    const userYear = document.getElementById('userYear');
-        
-                    const initials = student.firstName[0] + student.lastName[0];
-                    userAvatar.textContent = initials;
-        
-                    userName.textContent = `${student.firstName} ${student.lastName}`;
-                    userId.textContent = student.id;
-                    userEmail.textContent = student.email;
-                    userProgram.textContent = student.program;
-                    userYear.textContent = student.year;
-                }
-        
-                // Setup profile dropdown toggle
-                function setupProfileDropdown() {
-                    const avatar = document.querySelector('.avatar');
-                    const profileDropdown = document.getElementById('profileDropdown');
-        
-                    if (!avatar || !profileDropdown) {
-                        console.error('Avatar or profile dropdown not found');
-                        return;
-                    }
-        
-                    console.log('Setting up profile dropdown');
-        
-                    avatar.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        const isVisible = profileDropdown.style.display === 'block';
-                        console.log('Avatar clicked, current display:', profileDropdown.style.display);
-                        profileDropdown.style.display = isVisible ? 'none' : 'block';
-                    });
-        
-                    document.addEventListener('click', (event) => {
-                        if (!avatar.contains(event.target) && !profileDropdown.contains(event.target)) {
-                            console.log('Clicked outside, hiding dropdown');
-                            profileDropdown.style.display = 'none';
-                        }
-                    });
-                }
-
-                // Setup notification bell functionality
-// Setup notification bell functionality
-function setupNotificationBell() {
-    const notificationBell = document.querySelector('.notification-badge');
-    const notificationPanel = document.createElement('div');
-    notificationPanel.className = 'notification-panel';
-    notificationPanel.style.display = 'none';
-    notificationPanel.style.position = 'absolute';
-    notificationPanel.style.top = '100%';
-    notificationPanel.style.right = '0';
-    notificationPanel.style.background = 'rgba(20, 24, 36, 0.9)';
-    notificationPanel.style.backdropFilter = 'blur(10px)';
-    notificationPanel.style.borderRadius = '10px';
-    notificationPanel.style.padding = '15px';
-    notificationPanel.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 183, 217, 0.2)';
-    notificationPanel.style.border = '1px solid rgba(0, 183, 217, 0.1)';
-    notificationPanel.style.zIndex = '200';
-    notificationPanel.style.minWidth = '250px';
-    notificationPanel.style.color = '#ffffff';
-
-    // Sample notifications
-    const notifications = [
-        { id: 1, message: 'New assignment posted for Physics.', time: '2h ago' },
-        { id: 2, message: 'Quiz results available for English.', time: '1d ago' }
-    ];
-
-    notificationPanel.innerHTML = `
-        <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Notifications</h3>
-        ${notifications.map(notif => `
-            <div style="margin-bottom: 10px;">
-                <p>${notif.message}</p>
-                <small style="color: rgba(255, 255, 255, 0.7);">${notif.time}</small>
-            </div>
-        `).join('')}
-        <button class="clear-notifications" style="width: 100%; padding: 8px; background: var(--primary); border: none; border-radius: 5px; color: #ffffff; cursor: pointer; margin-top: 10px;">Clear All</button>
-    `;
-
-    // Set the notification count dynamically
-    const countElement = notificationBell.querySelector('.count');
-    if (countElement) {
-        countElement.textContent = notifications.length;
-    }
-
-    notificationBell.appendChild(notificationPanel);
-
-    notificationBell.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isVisible = notificationPanel.style.display === 'block';
-        notificationPanel.style.display = isVisible ? 'none' : 'block';
-    });
-
-    document.addEventListener('click', (event) => {
-        if (!notificationBell.contains(event.target)) {
-            notificationPanel.style.display = 'none';
-        }
-    });
-
-    // Clear notifications functionality
-    const clearButton = notificationPanel.querySelector('.clear-notifications');
-    clearButton.addEventListener('click', () => {
-        notificationPanel.innerHTML = '<h3 style="font-size: 1.2rem; margin-bottom: 10px;">Notifications</h3><p>No new notifications.</p>';
-        const count = notificationBell.querySelector('.count');
-        if (count) count.style.display = 'none';
-    });
-}
-
-// Call the function after DOM is loaded
-setupNotificationBell();
-
-// Setup attendance details popup
-function setupAttendancePopup() {
-    const detailsButton = document.querySelector('.attendance-summary-card .card-action');
-    const attendanceSubjects = document.querySelectorAll('.attendance-subject');
-    const attendanceChartCanvas = document.getElementById('attendanceChart');
-
-    detailsButton.addEventListener('click', () => {
-        // Get overall attendance percentage from the chart
-        const ctx = attendanceChartCanvas.getContext('2d');
-        const chart = Chart.getChart(attendanceChartCanvas);
-        const overallAttendance = chart.data.datasets[0].data[0];
-
-        // Create popup overlay
-        const overlay = document.createElement('div');
-        overlay.className = 'popup-overlay';
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.background = 'rgba(0, 0, 0, 0.5)';
-        overlay.style.zIndex = '1001';
-        overlay.style.display = 'flex';
-        overlay.style.justifyContent = 'center';
-        overlay.style.alignItems = 'center';
-
-        // Create popup content
-        const popup = document.createElement('div');
-        popup.className = 'popup-card';
-        popup.style.background = 'rgba(20, 24, 36, 0.7)';
-        popup.style.backdropFilter = 'blur(10px)';
-        popup.style.borderRadius = '15px';
-        popup.style.padding = '20px';
-        popup.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 183, 217, 0.1)';
-        popup.style.border = '1px solid rgba(0, 183, 217, 0.1)';
-        popup.style.width = '600px';
-        popup.style.maxHeight = '80vh';
-        popup.style.overflowY = 'auto';
-        popup.style.color = 'rgba(255, 255, 255, 0.9)';
-        popup.style.position = 'relative';
-
-        // Popup content with attendance ring and subject list
-        popup.innerHTML = `
-            <div class="card-header">
-                <div class="card-title">Attendance Details</div>
-                <span class="close-btn" style="cursor: pointer; font-size: 1.2rem; color: var(--primary);">×</span>
-            </div>
-            <div class="card-content">
-                <div class="attendance-chart-container" style="position: relative; width: 150px; height: 150px; margin: 0 auto 20px;">
-                    <canvas id="popupAttendanceChart" width="150" height="150"></canvas>
-                </div>
-                ${Array.from(attendanceSubjects).map(subject => {
-                    const subjectName = subject.querySelector('.subject-name').textContent;
-                    const percentage = subject.querySelector('.attendance-percentage').textContent;
-                    const progressBar = subject.querySelector('.attendance-progress');
-                    const progressWidth = progressBar.style.width;
-                    return `
-                        <div class="attendance-subject" style="margin-bottom: 20px;">
-                            <div class="subject-name" style="font-size: 1rem; color: #ffffff;">${subjectName}</div>
-                            <div class="attendance-progress-container" style="margin: 5px 0; height: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 6px; overflow: hidden; display: flex; align-items: center;">
-                                <div class="attendance-progress" style="height: 100%; width: ${progressWidth}; background: linear-gradient(90deg, rgba(0, 183, 217, 0.8), rgba(0, 194, 204, 0.8)); border-radius: 6px; box-shadow: 0 0 5px rgba(0, 183, 217, 0.3);"></div>
-                                <span class="attendance-percentage" style="position: absolute; right: 10px; font-size: 0.8rem; color: #ffffff; font-weight: bold; z-index: 5;">${percentage}</span>
-                            </div>
-                            <p><strong>Instructor:</strong> <span></span></p>
-                            <p><strong>Pending no. of assignments:</strong> <span></span></p>
-                            <p><strong>Teacher's remarks:</strong> <span></span></p>
-                        </div>
-                    `;
-                }).join('')}
-            </div>
-        `;
-
-        // Append to body
-        document.body.appendChild(overlay);
-        overlay.appendChild(popup);
-
-        // Initialize popup attendance chart
-        new Chart(document.getElementById('popupAttendanceChart'), {
-            type: 'doughnut',
-            data: {
-                datasets: [{
-                    data: [overallAttendance, 100 - overallAttendance],
-                    backgroundColor: ['#02d8ff', 'rgba(255, 255, 255, 0.1)'],
-                    borderWidth: 0,
-                    circumference: 360,
-                    cutout: '80%'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { enabled: false }
-                }
-            },
-            plugins: [{
-                id: 'textCenter',
-                beforeDraw: function(chart) {
-                    const width = chart.width;
-                    const height = chart.height;
-                    const ctx = chart.ctx;
-                    ctx.save();
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    const fontSize = Math.min(height / 10, 60);
-                    ctx.font = `${fontSize}px sans-serif`;
-                    ctx.fillStyle = '#ffffff';
-                    ctx.fillText(`${overallAttendance}%`, width / 2, height / 2);
-                    ctx.restore();
-                }
-            }]
-        });
-
-        // Close popup
-        const closeBtn = popup.querySelector('.close-btn');
-        closeBtn.addEventListener('click', () => {
-            overlay.remove();
-        });
-
-        // Close on overlay click
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                overlay.remove();
             }
-        });
-    });
-}
 
-// Call the function after DOM is loaded
-setupAttendancePopup();
-            });
-        </script>
-    </body>
+            // Render available quiz options
+            function renderQuizOptions() {
+                const quizContainer = document.querySelector('.quiz-container');
+                quizContainer.innerHTML = `
+                    <h2 class="quiz-title">Available Quizzes</h2>
+                    <div class="quiz-list">
+                        ${quizData.map(quiz => `
+                            <div class="quiz-item">
+                                <a href="${quiz.link}" class="course-action-btn">${quiz.subject} Quiz</a>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            // Populate profile with JSON data
+            function populateProfile(student) {
+                const userAvatar = document.getElementById('userAvatar');
+                const userName = document.getElementById('userName');
+                const userId = document.getElementById('userId');
+                const userEmail = document.getElementById('userEmail');
+                const userProgram = document.getElementById('userProgram');
+                const userYear = document.getElementById('userYear');
+
+                const initials = student.firstName[0] + student.lastName[0];
+                userAvatar.textContent = initials;
+
+                userName.textContent = `${student.firstName} ${student.lastName}`;
+                userId.textContent = student.id;
+                userEmail.textContent = student.email;
+                userProgram.textContent = student.program;
+                userYear.textContent = student.year;
+            }
+
+            // Setup profile dropdown toggle
+            function setupProfileDropdown() {
+                const avatar = document.querySelector('.avatar');
+                const profileDropdown = document.getElementById('profileDropdown');
+
+                if (!avatar || !profileDropdown) {
+                    console.error('Avatar or profile dropdown not found');
+                    return;
+                }
+
+                console.log('Setting up profile dropdown');
+
+                avatar.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isVisible = profileDropdown.style.display === 'block';
+                    console.log('Avatar clicked, current display:', profileDropdown.style.display);
+                    profileDropdown.style.display = isVisible ? 'none' : 'block';
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (!avatar.contains(event.target) && !profileDropdown.contains(event.target)) {
+                        console.log('Clicked outside, hiding dropdown');
+                        profileDropdown.style.display = 'none';
+                    }
+                });
+            }
+
+            // Setup notification bell functionality
+            function setupNotificationBell() {
+                const notificationBell = document.querySelector('.notification-badge');
+                const notificationPanel = document.createElement('div');
+                notificationPanel.className = 'notification-panel';
+                notificationPanel.style.display = 'none';
+                notificationPanel.style.position = 'absolute';
+                notificationPanel.style.top = '100%';
+                notificationPanel.style.right = '0';
+                notificationPanel.style.background = 'rgba(20, 24, 36, 0.9)';
+                notificationPanel.style.backdropFilter = 'blur(10px)';
+                notificationPanel.style.borderRadius = '10px';
+                notificationPanel.style.padding = '15px';
+                notificationPanel.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 183, 217, 0.2)';
+                notificationPanel.style.border = '1px solid rgba(0, 183, 217, 0.1)';
+                notificationPanel.style.zIndex = '200';
+                notificationPanel.style.minWidth = '250px';
+                notificationPanel.style.color = '#ffffff';
+
+                const notifications = [
+                    { id: 1, message: 'New assignment posted for Physics.', time: '2h ago' },
+                    { id: 2, message: 'Quiz results available for English.', time: '1d ago' }
+                ];
+
+                notificationPanel.innerHTML = `
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Notifications</h3>
+                    ${notifications.map(notif => `
+                        <div style="margin-bottom: 10px;">
+                            <p>${notif.message}</p>
+                            <small style="color: rgba(255, 255, 255, 0.7);">${notif.time}</small>
+                        </div>
+                    `).join('')}
+                    <button class="clear-notifications" style="width: 100%; padding: 8px; background: var(--primary); border: none; border-radius: 5px; color: #ffffff; cursor: pointer; margin-top: 10px;">Clear All</button>
+                `;
+
+                const countElement = notificationBell.querySelector('.count');
+                if (countElement) countElement.textContent = notifications.length;
+
+                notificationBell.appendChild(notificationPanel);
+
+                notificationBell.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isVisible = notificationPanel.style.display === 'block';
+                    notificationPanel.style.display = isVisible ? 'none' : 'block';
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (!notificationBell.contains(event.target)) notificationPanel.style.display = 'none';
+                });
+
+                const clearButton = notificationPanel.querySelector('.clear-notifications');
+                clearButton.addEventListener('click', () => {
+                    notificationPanel.innerHTML = '<h3 style="font-size: 1.2rem; margin-bottom: 10px;">Notifications</h3><p>No new notifications.</p>';
+                    const count = notificationBell.querySelector('.count');
+                    if (count) count.style.display = 'none';
+                });
+            }
+
+            // Setup attendance details popup
+            function setupAttendancePopup() {
+                const detailsButton = document.querySelector('.attendance-summary-card .card-action');
+                const attendanceSubjects = document.querySelectorAll('.attendance-subject');
+                const attendanceChartCanvas = document.getElementById('attendanceChart');
+
+                detailsButton.addEventListener('click', () => {
+                    const ctx = attendanceChartCanvas.getContext('2d');
+                    const chart = Chart.getChart(attendanceChartCanvas);
+                    const overallAttendance = chart.data.datasets[0].data[0];
+
+                    const overlay = document.createElement('div');
+                    overlay.className = 'popup-overlay';
+                    overlay.style.position = 'fixed';
+                    overlay.style.top = '0';
+                    overlay.style.left = '0';
+                    overlay.style.width = '100%';
+                    overlay.style.height = '100%';
+                    overlay.style.background = 'rgba(0, 0, 0, 0.5)';
+                    overlay.style.zIndex = '1001';
+                    overlay.style.display = 'flex';
+                    overlay.style.justifyContent = 'center';
+                    overlay.style.alignItems = 'center';
+
+                    const popup = document.createElement('div');
+                    popup.className = 'popup-card';
+                    popup.style.background = 'rgba(20, 24, 36, 0.7)';
+                    popup.style.backdropFilter = 'blur(10px)';
+                    popup.style.borderRadius = '15px';
+                    popup.style.padding = '20px';
+                    popup.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 183, 217, 0.1)';
+                    popup.style.border = '1px solid rgba(0, 183, 217, 0.1)';
+                    popup.style.width = '600px';
+                    popup.style.maxHeight = '80vh';
+                    popup.style.overflowY = 'auto';
+                    popup.style.color = 'rgba(255, 255, 255, 0.9)';
+                    popup.style.position = 'relative';
+
+                    popup.innerHTML = `
+                        <div class="card-header">
+                            <div class="card-title">Attendance Details</div>
+                            <span class="close-btn" style="cursor: pointer; font-size: 1.2rem; color: var(--primary);">×</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="attendance-chart-container" style="position: relative; width: 150px; height: 150px; margin: 0 auto 20px;">
+                                <canvas id="popupAttendanceChart" width="150" height="150"></canvas>
+                            </div>
+                            ${Array.from(attendanceSubjects).map(subject => {
+                                const subjectName = subject.querySelector('.subject-name').textContent;
+                                const percentage = subject.querySelector('.attendance-percentage').textContent;
+                                const progressBar = subject.querySelector('.attendance-progress');
+                                const progressWidth = progressBar.style.width;
+                                return `
+                                    <div class="attendance-subject" style="margin-bottom: 20px;">
+                                        <div class="subject-name" style="font-size: 1rem; color: #ffffff;">${subjectName}</div>
+                                        <div class="attendance-progress-container" style="margin: 5px 0; height: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 6px; overflow: hidden; display: flex; align-items: center;">
+                                            <div class="attendance-progress" style="height: 100%; width: ${progressWidth}; background: linear-gradient(90deg, rgba(0, 183, 217, 0.8), rgba(0, 194, 204, 0.8)); border-radius: 6px; box-shadow: 0 0 5px rgba(0, 183, 217, 0.3);"></div>
+                                            <span class="attendance-percentage" style="position: absolute; right: 10px; font-size: 0.8rem; color: #ffffff; font-weight: bold; z-index: 5;">${percentage}</span>
+                                        </div>
+                                        <p><strong>Instructor:</strong> <span></span></p>
+                                        <p><strong>Pending no. of assignments:</strong> <span></span></p>
+                                        <p><strong>Teacher's remarks:</strong> <span></span></p>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+
+                    document.body.appendChild(overlay);
+                    overlay.appendChild(popup);
+
+                    new Chart(document.getElementById('popupAttendanceChart'), {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [overallAttendance, 100 - overallAttendance],
+                                backgroundColor: ['#02d8ff', 'rgba(255, 255, 255, 0.1)'],
+                                borderWidth: 0,
+                                circumference: 360,
+                                cutout: '80%'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: false },
+                                tooltip: { enabled: false }
+                            }
+                        },
+                        plugins: [{
+                            id: 'textCenter',
+                            beforeDraw: function(chart) {
+                                const width = chart.width;
+                                const height = chart.height;
+                                const ctx = chart.ctx;
+                                ctx.save();
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'middle';
+                                const fontSize = Math.min(height / 10, 60);
+                                ctx.font = `${fontSize}px sans-serif`;
+                                ctx.fillStyle = '#ffffff';
+                                ctx.fillText(`${overallAttendance}%`, width / 2, height / 2);
+                                ctx.restore();
+                            }
+                        }]
+                    });
+
+                    const closeBtn = popup.querySelector('.close-btn');
+                    closeBtn.addEventListener('click', () => overlay.remove());
+                    overlay.addEventListener('click', (e) => {
+                        if (e.target === overlay) overlay.remove();
+                    });
+                });
+            }
+
+            // Initialize all features
+            setupNotificationBell();
+            setupAttendancePopup();
+        });
+    </script>
+</body>
 </html>
